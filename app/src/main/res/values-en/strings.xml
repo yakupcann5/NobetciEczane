@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Pharmacy on Duty</string>
+    <string name="pharmacy_on_duty">Phar. on Duty</string>
+    <string name="all_pharmacies">All Phar.</string>
+    <string name="now_here">You Are Here Now</string>
+    <string name="directions">Directions</string>
+    <string name="call">Call</string>
+    <string name="settings">Settings</string>
+    <string name="share">Share</string>
+    <string name="city">City</string>
+    <string name="districts">Districts</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="german">German</string>
+    <string name="french">French</string>
+    <string name="arabic">Arabic</string>
+    <string name="turkce">Turkish</string>
+    <string name="tema">Theme</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="light_theme">Light Theme</string>
+    <string name="system_default">System</string>
+
+</resources>

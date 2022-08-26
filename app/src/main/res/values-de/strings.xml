@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Apotheke im Dienst</string>
+    <string name="pharmacy_on_duty">Apotheke im Dienst</string>
+    <string name="all_pharmacies">All Phar.</string>
+    <string name="now_here">Du bist jetzt hier</string>
+    <string name="directions">Route</string>
+    <string name="call">Anrufen</string>
+    <string name="settings">Einstellungen</string>
+    <string name="share">Teilen</string>
+    <string name="city">Stadt</string>
+    <string name="districts">District</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="language">Langue</string>
+    <string name="english">English</string>
+    <string name="german">German</string>
+    <string name="french">French</string>
+    <string name="arabic">Arabic</string>
+    <string name="turkce">Türkçe</string>
+    <string name="tema">Thema</string>
+    <string name="dark_theme">Dunkles Thema</string>
+    <string name="light_theme">Lichtthema</string>
+    <string name="system_default">System</string>
+
+</resources>

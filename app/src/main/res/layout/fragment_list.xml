@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_white"
+    tools:context=".ui.listfragment.ListFragment">
+
+    <include
+        android:id="@+id/list_fragment_tab_bar"
+        layout="@layout/tab_bar_layout" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/list_frag_adMob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/list_fragment_tab_bar"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pharmacy_recyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_frag_adMob" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/filter_fragment_open_bttn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/custom_filter_button" />
+</RelativeLayout>

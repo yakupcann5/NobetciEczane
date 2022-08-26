@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.android.nobetcieczane.ui.splash.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_mapsFragment2"
+            app:destination="@id/mapsFragment2" />
+        <action
+            android:id="@+id/action_splashFragment_to_filterFragment"
+            app:destination="@id/filterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment2"
+        android:name="com.android.nobetcieczane.ui.maps.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps">
+        <action
+            android:id="@+id/action_mapsFragment2_to_listFragment2"
+            app:destination="@id/listFragment2" />
+        <action
+            android:id="@+id/action_mapsFragment2_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment2"
+        android:name="com.android.nobetcieczane.ui.listfragment.ListFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment2_to_mapsFragment2"
+            app:destination="@id/mapsFragment2" />
+        <action
+            android:id="@+id/action_listFragment2_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_listFragment2_to_filterFragment"
+            app:destination="@id/filterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.android.nobetcieczane.ui.settingsfragment.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_mapsFragment2"
+            app:destination="@id/mapsFragment2" />
+        <action
+            android:id="@+id/action_settingsFragment_to_listFragment2"
+            app:destination="@id/listFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.android.nobetcieczane.ui.filterfragment.FilterFragment"
+        android:label="fragment_filter"
+        tools:layout="@layout/fragment_filter" >
+        <action
+            android:id="@+id/action_filterFragment_to_mapsFragment2"
+            app:destination="@id/mapsFragment2" />
+        <action
+            android:id="@+id/action_filterFragment_to_listFragment2"
+            app:destination="@id/listFragment2" />
+    </fragment>
+
+</navigation>

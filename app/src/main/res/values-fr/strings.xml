@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Pharmacie De Garde</string>
+    <string name="pharmacy_on_duty">Pharmacie De Garde</string>
+    <string name="all_pharmacies">Toutes les Pharm.</string>
+    <string name="now_here">Vous êtes ici maintenant</string>
+    <string name="directions">Itinéraire</string>
+    <string name="call">Appeler</string>
+    <string name="settings">Paramètres</string>
+    <string name="share">Partager</string>
+    <string name="city">Ville</string>
+    <string name="districts">Les Quartiers</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="language">Langue</string>
+    <string name="english">English</string>
+    <string name="german">Allemand</string>
+    <string name="french">French</string>
+    <string name="arabic">Arabe</string>
+    <string name="turkce">Turc</string>
+    <string name="tema">Thème</string>
+    <string name="dark_theme">Thème sombre</string>
+    <string name="light_theme">thème de la lumière</string>
+    <string name="system_default">système</string>
+
+</resources>

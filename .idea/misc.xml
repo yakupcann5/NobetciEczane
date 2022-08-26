@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Yakup/.gradle/caches/transforms-3/af578fb8b0ced90b05bff952cb375c0a/transformed/appcompat-1.4.2/res/layout/support_simple_spinner_dropdown_item.xml" value="0.184375" />
+        <entry key="..\:/Users/Yakup/.gradle/caches/transforms-3/b4808edc749895e63c854216acc0db6c/transformed/appcompat-1.5.0/res/layout/support_simple_spinner_dropdown_item.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable-night/ic_mail.xml" value="0.249" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable-night/ic_setting.xml" value="0.249" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable-night/ic_share.xml" value="0.249" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/custom_circle_button.xml" value="0.2" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/custom_filter_button.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/custom_filter_close_button.xml" value="0.2005" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/custom_list_button.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/custom_list_frag_tree_point_button.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/custom_nav_bar_location_button.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/custom_nav_bar_treepoint_button.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/custom_now_location_button.xml" value="0.2985" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/deneme.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_background.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.249" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_cancel.xml" value="0.2005" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_launcher_background.xml" value="0.249" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_location.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_logo.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_mail.xml" value="0.249" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_map.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_marker.xml" value="0.29" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_menu.xml" value="0.1965" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_now_location.xml" value="0.2985" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_nowhere.xml" value="0.1895" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_setting.xml" value="0.249" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_settings.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_share.xml" value="0.249" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_threepoint.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/ic_treepoint.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/nav_bar_button.xml" value="0.3505" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/nav_bar_left_button.xml" value="0.2895" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/nav_bar_linear_layout_background.xml" value="0.196" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/nav_bar_right_button.xml" value="0.3495" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/settings_background.xml" value="0.2215" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/tab_bar_layout.xml" value="0.1955" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/drawable/threepoint.xml" value="0.195" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout-v23/tab_bar_layout.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/activity_splash_screen.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/bottom_sheet.xml" value="0.33" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/bottom_sheet_detail.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/bottom_sheet_setting.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.33489583333333334" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_bottom_sheet_nav.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_filter.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_half.xml" value="0.1" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_list.xml" value="0.16" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_mao_with_bottomsheet.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_map_with_bottomsheet.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_maps.xml" value="0.67" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_maps_default.xml" value="0.1697061803444782" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_second.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/fragment_splash.xml" value="0.14" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/half_window_layout.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/nav_bar_layout.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/pharmacy_on_duty_recycler_row.xml" value="0.14" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/recycler.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/recycler_row.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/settings_layout.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/layout/tab_bar_layout.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.29" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.29" />
+        <entry key="app/src/main/res/drawable/custom_filter_close_button.xml" value="0.188" />
+        <entry key="app/src/main/res/layout/bottom_sheet_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/bottom_sheet_setting.xml" value="0.19583333333333333" />
+        <entry key="app/src/main/res/layout/fragment_filter.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.19583333333333333" />
+        <entry key="app/src/main/res/layout/fragment_map_with_bottomsheet.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.19583333333333333" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

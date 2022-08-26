@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">الصيدلية المناوبة</string>
+    <string name="pharmacy_on_duty">الصيدلية المناوبة</string>
+    <string name="all_pharmacies">كل الصيدليات.</string>
+    <string name="now_here">انت هنا الآن</string>
+    <string name="directions">احصل على الاتجاهات</string>
+    <string name="call">اتصلي</string>
+    <string name="settings">الإعدادات</string>
+    <string name="share">شارك</string>
+    <string name="city">مدينة</string>
+    <string name="districts">يصرف</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="language">لغة</string>
+    <string name="english">إنجليزي</string>
+    <string name="german">ألمانية</string>
+    <string name="french">فرنسي</string>
+    <string name="arabic">عربي</string>
+    <string name="turkce">اللغة التركية</string>
+    <string name="tema">سمة</string>
+    <string name="dark_theme">مظهر داكن</string>
+    <string name="light_theme">مظهر خفيف</string>
+    <string name="system_default">مظهر خفيف</string>
+
+</resources>

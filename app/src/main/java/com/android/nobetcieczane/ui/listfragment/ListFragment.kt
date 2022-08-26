@@ -1,0 +1,101 @@
+package com.android.nobetcieczane.ui.listfragment
+
+import android.content.res.Resources
+import android.graphics.drawable.Drawable
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.android.nobetcieczane.R
+import com.android.nobetcieczane.data.model.DataDto
+import com.android.nobetcieczane.common.RequestState
+import com.android.nobetcieczane.databinding.FragmentListBinding
+import com.android.nobetcieczane.databinding.TabBarLayoutBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+
+@AndroidEntryPoint
+class ListFragment : Fragment(), View.OnClickListener {
+    private lateinit var binding: FragmentListBinding
+    private lateinit var toolbarBinding: TabBarLayoutBinding
+    private val viewModel: ListFragmentViewModel by viewModels()
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerViewAdapter: ListFragmentRecyclerViewAdapter
+    private var pharmacyArray = arrayListOf<DataDto>()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentListBinding.inflate(inflater)
+        getDataFromApi()
+        toolbarBinding = binding.listFragmentTabBar
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
+        recyclerView = view.findViewById(R.id.pharmacy_recyclerView)
+        recyclerViewAdapter = ListFragmentRecyclerViewAdapter(pharmacyArray)
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        recyclerView.adapter = recyclerViewAdapter
+        MobileAds.initialize(this.requireContext())
+        val adRequest = AdRequest.Builder().build()
+        binding.listFragAdMob.loadAd(adRequest)
+    }
+
+    private fun getDataFromApi() {
+        viewModel.getPharmacy()
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.pharmacyState.collect { requestState ->
+                when (requestState) {
+                    is RequestState.Success -> {
+                        requestState.data?.let {
+                            initRecycler(it)
+                        }
+                    }
+                    else -> {}
+                }
+            }
+        }
+    }
+
+    private fun initRecycler(list: ArrayList<DataDto>) {
+        binding.pharmacyRecyclerView.apply {
+            adapter = ListFragmentRecyclerViewAdapter(list)
+        }
+    }
+    private fun initViews() {
+        binding.listFragmentTabBar.listFragTabBarLocationButton.setOnClickListener(this)
+        binding.listFragmentTabBar.listFragmentSettingButton.setOnClickListener(this)
+        binding.filterFragmentOpenBttn.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.list_frag_tab_bar_location_button -> {
+                findNavController().navigate(R.id.action_listFragment2_to_mapsFragment2)
+            }
+            R.id.list_fragment_setting_button -> {
+                findNavController().navigate(R.id.action_listFragment2_to_settingsFragment)
+            }
+            R.id.filter_fragment_open_bttn -> {
+                findNavController().navigate(R.id.action_listFragment2_to_filterFragment)
+            }
+        }
+    }
+}
