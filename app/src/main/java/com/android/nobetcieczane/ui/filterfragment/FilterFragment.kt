@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.android.nobetcieczane.DistrictCityModel
 import com.android.nobetcieczane.Districts
 import com.android.nobetcieczane.R
@@ -51,6 +52,7 @@ class FilterFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initViews() {
+        binding.filterCloseButton.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -60,6 +62,9 @@ class FilterFragment : Fragment(), View.OnClickListener {
             }
             R.id.districts_spinner -> {
                 Toast.makeText(this.requireContext(), "deneme", Toast.LENGTH_SHORT).show()
+            }
+            R.id.filter_close_button -> {
+                findNavController().navigate(R.id.action_filterFragment_to_listFragment2)
             }
         }
     }

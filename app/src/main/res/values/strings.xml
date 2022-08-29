@@ -20,4 +20,9 @@
     <string name="dark_theme">Koyu Tema</string>
     <string name="light_theme">Aydınlık Tema</string>
     <string name="system_default">Sistem Varsayılanı</string>
+    <string name="soon">Yakında</string>
+    <string name="new_update">Yakında Yeni Güncellemeler ile Karşınızda</string>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
+    <string name="cancel">Kapat</string>
 </resources>

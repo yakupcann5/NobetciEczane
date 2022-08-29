@@ -1,9 +1,12 @@
 package com.android.nobetcieczane.ui.listfragment
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.android.nobetcieczane.Application
 import com.android.nobetcieczane.R
 import com.android.nobetcieczane.data.model.DataDto
 import com.android.nobetcieczane.databinding.PharmacyOnDutyRecyclerRowBinding
@@ -11,6 +14,7 @@ import com.android.nobetcieczane.databinding.PharmacyOnDutyRecyclerRowBinding
 class ListFragmentRecyclerViewAdapter(
     var pharmacyList: ArrayList<DataDto>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private var expanded = true
 
     class ViewHolder(view: PharmacyOnDutyRecyclerRowBinding) :
         RecyclerView.ViewHolder(view.root) {
@@ -34,6 +38,9 @@ class ListFragmentRecyclerViewAdapter(
         holder.sentBinding.pharmacyName.text = pharmacyList[position].eczaneAdi
         holder.sentBinding.pharmacyAddress.text = pharmacyList[position].adresi
         holder.sentBinding.pharmacyPhoneNumber.text = pharmacyList[position].telefon
+        holder.itemView.setOnClickListener {
+            Log.e("TAG", "yakup", )
+        }
     }
 
     override fun getItemCount(): Int {

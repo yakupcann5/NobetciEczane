@@ -20,5 +20,10 @@
     <string name="dark_theme">Dark Theme</string>
     <string name="light_theme">Light Theme</string>
     <string name="system_default">System</string>
+    <string name="soon">Soon</string>
+    <string name="new_update">Coming Soon With New Updates</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Close</string>
 
 </resources>

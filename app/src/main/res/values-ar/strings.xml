@@ -20,5 +20,10 @@
     <string name="dark_theme">مظهر داكن</string>
     <string name="light_theme">مظهر خفيف</string>
     <string name="system_default">مظهر خفيف</string>
+    <string name="soon">هكذا</string>
+    <string name="new_update">قريبًا مع التحديثات الجديدة</string>
+    <string name="yes">أجل</string>
+    <string name="no">رقم</string>
+    <string name="cancel">أغلق</string>
 
 </resources>

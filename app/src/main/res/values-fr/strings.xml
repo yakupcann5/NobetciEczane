@@ -20,5 +20,10 @@
     <string name="dark_theme">Thème sombre</string>
     <string name="light_theme">thème de la lumière</string>
     <string name="system_default">système</string>
+    <string name="soon">Bientôt</string>
+    <string name="new_update">YBientôt disponible avec de nouvelles mises à jour</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="cancel">Proche</string>
 
 </resources>
