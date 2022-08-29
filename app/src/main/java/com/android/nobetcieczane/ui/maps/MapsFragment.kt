@@ -46,6 +46,9 @@ class MapsFragment : Fragment(), View.OnClickListener {
         mapReady()
         setBottomSettingSheet(false)
         viewModel.getPharmacy()
+        MobileAds.initialize(this.requireContext())
+        val adRequest = AdRequest.Builder().build()
+        binding.bottomsheet.adMob.loadAd(adRequest)
     }
 
     override fun onClick(v: View?) {
@@ -157,9 +160,6 @@ class MapsFragment : Fragment(), View.OnClickListener {
                                         BottomSheetBehavior.STATE_HIDDEN -> {
                                             bottomSheetBehavior.peekHeight = 0
                                             binding.bottomsheet.constraint.visibility = View.GONE
-                                            MobileAds.initialize(requireContext())
-                                            val adRequest = AdRequest.Builder().build()
-                                            binding.bottomsheet.adMob.loadAd(adRequest)
                                         }
                                         else -> {}
                                     }

@@ -71,27 +71,16 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pharmacyAddress" />
 
-        <LinearLayout
-            android:id="@+id/adMobLayout"
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adMob"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pharmacyPhone"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:visibility="visible"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pharmacyPhone">
-
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/adMob"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/banner_ad_unit_id" />
-
-        </LinearLayout>
+            android:layout_marginTop="10dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"
+            ads:layout_constraintLeft_toLeftOf="parent"
+            ads:layout_constraintRight_toRightOf="parent"
+            ads:layout_constraintTop_toBottomOf="@id/pharmacyPhone" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -99,9 +88,10 @@
             android:layout_below="@+id/pharmacyPhone"
             android:gravity="center"
             android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/adMobLayout">
+            app:layout_constraintTop_toBottomOf="@id/adMob">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/pharmacyDirections"
