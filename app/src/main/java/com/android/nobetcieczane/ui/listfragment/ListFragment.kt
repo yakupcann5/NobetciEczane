@@ -48,7 +48,7 @@ class ListFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         initViews()
         recyclerView = view.findViewById(R.id.pharmacy_recyclerView)
-        recyclerViewAdapter = ListFragmentRecyclerViewAdapter(pharmacyArray)
+        recyclerViewAdapter = ListFragmentRecyclerViewAdapter(pharmacyArray, requireContext())
         recyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = recyclerViewAdapter
@@ -77,7 +77,7 @@ class ListFragment : Fragment(), View.OnClickListener {
 
     private fun initRecycler(list: ArrayList<DataDto>) {
         binding.pharmacyRecyclerView.apply {
-            adapter = ListFragmentRecyclerViewAdapter(list)
+            adapter = ListFragmentRecyclerViewAdapter(list, requireContext())
         }
     }
 
@@ -94,12 +94,14 @@ class ListFragment : Fragment(), View.OnClickListener {
             }
             R.id.list_fragment_setting_button -> {
                 //findNavController().navigate(R.id.action_listFragment2_to_settingsFragment)
-                val alertDialog = AlertDialog.Builder(this.requireContext()).setTitle(R.string.soon)
-                    .setMessage(R.string.new_update).setCancelable(true)
-                    .setPositiveButton(R.string.cancel,
-                        DialogInterface.OnClickListener { dialogInterface, i ->
-                            dialogInterface.cancel()
-                        })
+                val alertDialog =
+                    AlertDialog.Builder(this.requireContext()).setTitle(R.string.settings)
+                        .setTitle(R.string.soon)
+                        .setMessage(R.string.new_update).setCancelable(true)
+                        .setPositiveButton(R.string.cancel,
+                            DialogInterface.OnClickListener { dialogInterface, i ->
+                                dialogInterface.cancel()
+                            })
                 alertDialog.show()
             }
             R.id.filter_fragment_open_bttn -> {

@@ -73,15 +73,18 @@
         <entry key="..\:/Users/Yakup/Desktop/DetaySoft/NobetciEczane/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.29" />
         <entry key="app/src/main/res/drawable/custom_filter_close_button.xml" value="0.188" />
         <entry key="app/src/main/res/drawable/custom_list_button.xml" value="0.188" />
+        <entry key="app/src/main/res/drawable/ic_drop_down.xml" value="0.188" />
         <entry key="app/src/main/res/drawable/ic_map.xml" value="0.188" />
         <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.188" />
         <entry key="app/src/main/res/layout/bottom_sheet_detail.xml" value="0.22" />
         <entry key="app/src/main/res/layout/bottom_sheet_setting.xml" value="0.19583333333333333" />
+        <entry key="app/src/main/res/layout/deneme.xml" value="0.19583333333333333" />
         <entry key="app/src/main/res/layout/fragment_filter.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_list.xml" value="0.19583333333333333" />
         <entry key="app/src/main/res/layout/fragment_map_with_bottomsheet.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.19583333333333333" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/pharmacy_on_duty_recycler_row.xml" value="0.1" />
       </map>
     </option>
   </component>
