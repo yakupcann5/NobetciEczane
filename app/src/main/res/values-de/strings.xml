@@ -25,5 +25,6 @@
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
     <string name="cancel">Nah dran</string>
+    <string name="save">Sparen</string>
 
 </resources>

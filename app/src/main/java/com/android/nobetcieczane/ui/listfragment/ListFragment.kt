@@ -96,7 +96,6 @@ class ListFragment : Fragment(), View.OnClickListener {
                 //findNavController().navigate(R.id.action_listFragment2_to_settingsFragment)
                 val alertDialog =
                     AlertDialog.Builder(this.requireContext()).setTitle(R.string.settings)
-                        .setTitle(R.string.soon)
                         .setMessage(R.string.new_update).setCancelable(true)
                         .setPositiveButton(R.string.cancel,
                             DialogInterface.OnClickListener { dialogInterface, i ->

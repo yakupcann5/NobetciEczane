@@ -130,7 +130,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
                         ).icon(viewModel.bitmapDescriptor(requireContext(), R.drawable.ic_nowhere))
                             .title(getString(R.string.now_here)).flat(true)
                     )
-                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(nowLocation[0], 15f))
+                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(nowLocation[0], 13f))
                     map.mapType = GoogleMap.MAP_TYPE_NORMAL
                 }
             })
@@ -182,7 +182,6 @@ class MapsFragment : Fragment(), View.OnClickListener {
         }
     }
 
-
     private fun setBottomSettingSheet(isVisible: Boolean) {
         val bottomSheetSetting = BottomSheetBehavior.from(binding.settingsSheet.root)
         bottomSheetSetting.state = BottomSheetBehavior.STATE_HIDDEN
@@ -206,6 +205,4 @@ class MapsFragment : Fragment(), View.OnClickListener {
             binding.settingsSheet.constraint.visibility = View.GONE
         }
     }
-
-
 }

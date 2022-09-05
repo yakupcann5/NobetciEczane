@@ -53,6 +53,7 @@ class FilterFragment : Fragment(), View.OnClickListener {
 
     private fun initViews() {
         binding.filterCloseButton.setOnClickListener(this)
+        binding.filterSaveButton.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -65,6 +66,10 @@ class FilterFragment : Fragment(), View.OnClickListener {
             }
             R.id.filter_close_button -> {
                 findNavController().navigate(R.id.action_filterFragment_to_listFragment2)
+            }
+            R.id.filter_save_button -> {
+                viewModel.setFilterDistrict(binding.districtsSpinner.selectedItem.toString().lowercase())
+                findNavController().navigate(R.id.action_filterFragment_to_mapsFragment2)
             }
         }
     }
@@ -115,7 +120,7 @@ class FilterFragment : Fragment(), View.OnClickListener {
                                 district.text
                             )
                         }
-                        viewModel.setFilterCity(parent?.selectedItem.toString())
+                        viewModel.setFilterCity(parent?.selectedItem.toString().lowercase())
                     }
                 }
                 Collections.sort(districtList, coll)
@@ -131,6 +136,22 @@ class FilterFragment : Fragment(), View.OnClickListener {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("Not yet implemented")
+            }
+
+        }
+        binding.districtsSpinner.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
             }
 
         }

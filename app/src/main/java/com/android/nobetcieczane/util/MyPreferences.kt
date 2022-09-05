@@ -1,6 +1,7 @@
 package com.android.nobetcieczane.util
 
 import android.content.SharedPreferences
+import android.util.Log
 import com.android.nobetcieczane.data.model.DataDto
 import com.google.gson.Gson
 import javax.inject.Inject
@@ -43,7 +44,7 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
     }
 
     fun setCity(city: String) {
-        sharedPreferences.edit().putString(CITY, city).apply()
+        sharedPreferences.edit().putString(CITY, Tools.trEngCevir(city)).apply()
     }
 
     fun getCity(): String? {
@@ -58,24 +59,8 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
         if (town.contains("Merkez")) {
             sharedPreferences.edit().putString(TOWN, CENTER).apply()
         } else {
-            sharedPreferences.edit().putString(TOWN, town).apply()
+            sharedPreferences.edit().putString(TOWN, Tools.trEngCevir(town)).apply()
         }
-    }
-
-    fun setCityFilter(filterCity: String) {
-        sharedPreferences.edit().putString(FILTER_CITY, filterCity).apply()
-    }
-
-    fun getCityFilter(): String? {
-        return sharedPreferences.getString(FILTER_CITY, "")
-    }
-
-    fun setDistrictFilter(filterDistrict: String) {
-        sharedPreferences.edit().putString(FILTER_DISTRICT, filterDistrict).apply()
-    }
-
-    fun getDistrictFilter(): String? {
-        return sharedPreferences.getString(FILTER_DISTRICT, "")
     }
 
     fun getPhoneNumber(): String? {

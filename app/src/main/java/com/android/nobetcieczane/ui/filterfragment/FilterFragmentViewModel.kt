@@ -8,18 +8,18 @@ import javax.inject.Inject
 @HiltViewModel
 class FilterFragmentViewModel @Inject constructor(private val preferences: MyPreferences) : ViewModel() {
     fun setFilterCity(filterCity: String) {
-        preferences.setCityFilter(filterCity)
+        preferences.setCity(filterCity)
     }
 
     fun getFilterCity(): String? {
-        return preferences.getCityFilter()
+        return preferences.getCity()
     }
 
     fun setFilterDistrict(filterDistrict: String) {
-        preferences.setDistrictFilter(filterDistrict)
+        preferences.setTown(filterDistrict)
     }
 
     fun getFilterDistrict(): String? {
-        return preferences.getDistrictFilter()
+        return preferences.getTown()
     }
 }

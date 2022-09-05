@@ -25,4 +25,5 @@
     <string name="yes">Evet</string>
     <string name="no">Hayır</string>
     <string name="cancel">Kapat</string>
+    <string name="save">Kaydet</string>
 </resources>

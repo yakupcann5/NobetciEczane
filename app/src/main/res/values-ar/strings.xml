@@ -25,5 +25,6 @@
     <string name="yes">أجل</string>
     <string name="no">رقم</string>
     <string name="cancel">أغلق</string>
+    <string name="save">حفظ</string>
 
 </resources>
