@@ -22,4 +22,20 @@ class FilterFragmentViewModel @Inject constructor(private val preferences: MyPre
     fun getFilterDistrict(): String? {
         return preferences.getTown()
     }
+
+    fun getDisc(): String? {
+        return preferences.getFilterDisc()
+    }
+
+    fun setDisc(disc: String) {
+        preferences.setFilterDisc(disc)
+    }
+
+    fun getCity(): String? {
+        return preferences.getFilterCity()
+    }
+
+    fun setCity(disc: String) {
+        preferences.setFilterCity(disc)
+    }
 }

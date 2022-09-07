@@ -86,4 +86,20 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
     fun setMarkerLocationLat(markerLat: Double) {
         sharedPreferences.edit().putFloat(BOTTOM_SHEET_LAT, markerLat.toFloat()).apply()
     }
+
+    fun getFilterCity(): String? {
+        return sharedPreferences.getString(FILTER_CITY,"")
+    }
+
+    fun setFilterCity(filterCity: String) {
+        sharedPreferences.edit().putString(FILTER_CITY, filterCity).apply()
+    }
+
+    fun getFilterDisc(): String? {
+        return sharedPreferences.getString(FILTER_DISTRICT,"")
+    }
+
+    fun setFilterDisc(filterDisc: String) {
+        sharedPreferences.edit().putString(FILTER_DISTRICT, filterDisc).apply()
+    }
 }

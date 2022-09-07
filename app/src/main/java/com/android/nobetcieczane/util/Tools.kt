@@ -22,4 +22,16 @@ object Tools {
         sonuc = metin
         return sonuc
     }
+
+    fun engTrCevir(alinanMetin: String): String {
+        var metin = alinanMetin
+        var sonuc = ""
+        val ilkHarf = charArrayOf('İ', 'ı', 'ü', 'Ü', 'ç', 'Ç', 'Ğ', 'ğ', 'Ş', 'ş', 'ö', 'Ö')
+        val yeniHarf = charArrayOf('İ', 'ı', 'ü', 'Ü', 'ç', 'Ç', 'Ğ', 'ğ', 'Ş', 'ş', 'ö', 'Ö')
+        for (sayac in ilkHarf.indices) {
+            metin = metin.replace(yeniHarf[sayac], ilkHarf[sayac])
+        }
+        sonuc = metin
+        return sonuc
+    }
 }

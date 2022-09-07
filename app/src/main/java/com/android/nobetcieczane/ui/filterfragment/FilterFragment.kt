@@ -1,7 +1,6 @@
 package com.android.nobetcieczane.ui.filterfragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,8 +15,8 @@ import com.android.nobetcieczane.Districts
 import com.android.nobetcieczane.R
 import com.android.nobetcieczane.databinding.FragmentFilterBinding
 import com.android.nobetcieczane.util.Helper
+import com.android.nobetcieczane.util.Tools
 import dagger.hilt.android.AndroidEntryPoint
-import java.io.*
 import java.text.Collator
 import java.util.*
 import kotlin.collections.ArrayList
@@ -69,6 +68,7 @@ class FilterFragment : Fragment(), View.OnClickListener {
             }
             R.id.filter_save_button -> {
                 viewModel.setFilterDistrict(binding.districtsSpinner.selectedItem.toString().lowercase())
+                viewModel.setDisc(binding.districtsSpinner.selectedItem.toString())
                 findNavController().navigate(R.id.action_filterFragment_to_mapsFragment2)
             }
         }
@@ -91,7 +91,11 @@ class FilterFragment : Fragment(), View.OnClickListener {
         )
         binding.citySpinner.adapter = citiesAdapter
 
-        districts = model?.data?.get(0)?.districts as ArrayList<Districts>
+        var selectedPositionCity = citiesAdapter.getPosition(viewModel.getCity())
+        if (selectedPositionCity < 0 ) selectedPositionCity = 0
+        binding.citySpinner.setSelection(selectedPositionCity)
+
+        districts = model?.data?.get(selectedPositionCity)?.districts as ArrayList<Districts>
         districts.forEach {
             districtList.add(
                 it.text
@@ -121,6 +125,7 @@ class FilterFragment : Fragment(), View.OnClickListener {
                             )
                         }
                         viewModel.setFilterCity(parent?.selectedItem.toString().lowercase())
+                        viewModel.setCity(parent?.selectedItem.toString())
                     }
                 }
                 Collections.sort(districtList, coll)
@@ -132,6 +137,9 @@ class FilterFragment : Fragment(), View.OnClickListener {
                     )
                 districtsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 binding.districtsSpinner.adapter = districtsAdapter
+
+                val selectedPositionDistrict = districtsAdapter.getPosition(viewModel.getDisc())
+                binding.districtsSpinner.setSelection(selectedPositionDistrict)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
