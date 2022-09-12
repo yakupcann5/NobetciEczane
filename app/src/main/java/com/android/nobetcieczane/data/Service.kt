@@ -1,7 +1,7 @@
-package com.android.nobetcieczane.data
+package com.yakupcan.nobetcieczane.data
 
-import com.android.nobetcieczane.data.model.DataDto
-import com.android.nobetcieczane.data.model.PharmacyResponse
+import com.yakupcan.nobetcieczane.data.model.DataDto
+import com.yakupcan.nobetcieczane.data.model.PharmacyResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

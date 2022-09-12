@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.android.nobetcieczane.ui.splash.SplashFragment"
+        android:name="com.yakupcan.nobetcieczane.ui.splash.SplashFragment"
         android:label="SplashFragment">
         <action
             android:id="@+id/action_splashFragment_to_mapsFragment2"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/mapsFragment2"
-        android:name="com.android.nobetcieczane.ui.maps.MapsFragment"
+        android:name="com.yakupcan.nobetcieczane.ui.maps.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps">
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment2"
-        android:name="com.android.nobetcieczane.ui.listfragment.ListFragment"
+        android:name="com.yakupcan.nobetcieczane.ui.listfragment.ListFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_list">
         <action
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.android.nobetcieczane.ui.settingsfragment.SettingsFragment"
+        android:name="com.yakupcan.nobetcieczane.ui.settingsfragment.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.android.nobetcieczane.ui.filterfragment.FilterFragment"
+        android:name="com.yakupcan.nobetcieczane.ui.filterfragment.FilterFragment"
         android:label="fragment_filter"
         tools:layout="@layout/fragment_filter" >
         <action

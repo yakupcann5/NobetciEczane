@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.common
+package com.yakupcan.nobetcieczane.common
 
 object Constants {
     const val BASE_URL = "https://www.nosyapi.com/apiv2/"

@@ -1,7 +1,7 @@
-package com.android.nobetcieczane.domain.repository
+package com.yakupcan.nobetcieczane.domain.repository
 
-import com.android.nobetcieczane.data.model.DataDto
-import com.android.nobetcieczane.data.model.PharmacyResponse
+import com.yakupcan.nobetcieczane.data.model.DataDto
+import com.yakupcan.nobetcieczane.data.model.PharmacyResponse
 
 interface PharmacyRepository {
     suspend fun getPharmacy(city: String?, town: String?, apikey: String?): ArrayList<DataDto>

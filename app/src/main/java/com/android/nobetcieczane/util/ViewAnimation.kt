@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.util
+package com.yakupcan.nobetcieczane.util
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter

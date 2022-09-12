@@ -6,7 +6,7 @@
 
         <variable
             name="pharmacy"
-            type="com.android.nobetcieczane.data.model.DataDto" />
+            type="com.yakupcan.nobetcieczane.data.model.DataDto" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.ui.filterfragment
+package com.yakupcan.nobetcieczane.ui.filterfragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,12 +10,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.android.nobetcieczane.DistrictCityModel
-import com.android.nobetcieczane.Districts
-import com.android.nobetcieczane.R
-import com.android.nobetcieczane.databinding.FragmentFilterBinding
-import com.android.nobetcieczane.util.Helper
-import com.android.nobetcieczane.util.Tools
+import com.yakupcan.nobetcieczane.DistrictCityModel
+import com.yakupcan.nobetcieczane.Districts
+import com.yakupcan.nobetcieczane.R
+import com.yakupcan.nobetcieczane.databinding.FragmentFilterBinding
+import com.yakupcan.nobetcieczane.util.Helper
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.Collator
 import java.util.*

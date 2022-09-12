@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.data.model
+package com.yakupcan.nobetcieczane.data.model
 
 import com.google.gson.annotations.SerializedName
 

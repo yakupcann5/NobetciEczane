@@ -1,7 +1,7 @@
-package com.android.nobetcieczane.util
+package com.yakupcan.nobetcieczane.util
 
 import android.content.Context
-import com.android.nobetcieczane.DistrictCityModel
+import com.yakupcan.nobetcieczane.DistrictCityModel
 import com.google.gson.Gson
 import java.io.IOException
 

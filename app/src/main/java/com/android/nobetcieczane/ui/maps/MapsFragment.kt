@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.ui.maps
+package com.yakupcan.nobetcieczane.ui.maps
 
 import android.content.Intent
 import android.net.Uri
@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.android.nobetcieczane.R
-import com.android.nobetcieczane.databinding.FragmentMapWithBottomsheetBinding
+import com.yakupcan.nobetcieczane.R
+import com.yakupcan.nobetcieczane.databinding.FragmentMapWithBottomsheetBinding
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.maps.CameraUpdateFactory

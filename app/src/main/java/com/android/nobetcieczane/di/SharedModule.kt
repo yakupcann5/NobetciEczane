@@ -1,9 +1,9 @@
-package com.android.nobetcieczane.di
+package com.yakupcan.nobetcieczane.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.android.nobetcieczane.common.Constants
-import com.android.nobetcieczane.util.MyPreferences
+import com.yakupcan.nobetcieczane.common.Constants
+import com.yakupcan.nobetcieczane.util.MyPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

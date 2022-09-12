@@ -1,11 +1,11 @@
-package com.android.nobetcieczane.ui
+package com.yakupcan.nobetcieczane.ui
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.android.nobetcieczane.R
+import com.yakupcan.nobetcieczane.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

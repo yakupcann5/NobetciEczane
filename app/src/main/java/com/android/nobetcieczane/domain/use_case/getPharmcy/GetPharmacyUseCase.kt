@@ -1,9 +1,9 @@
-package com.android.nobetcieczane.domain.use_case.getPharmcy
+package com.yakupcan.nobetcieczane.domain.use_case.getPharmcy
 
-import com.android.nobetcieczane.common.Constants
-import com.android.nobetcieczane.domain.repository.PharmacyRepository
-import com.android.nobetcieczane.common.RequestState
-import com.android.nobetcieczane.util.MyPreferences
+import com.yakupcan.nobetcieczane.common.Constants
+import com.yakupcan.nobetcieczane.domain.repository.PharmacyRepository
+import com.yakupcan.nobetcieczane.common.RequestState
+import com.yakupcan.nobetcieczane.util.MyPreferences
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException

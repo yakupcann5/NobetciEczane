@@ -1,4 +1,4 @@
-package com.android.nobetcieczane
+package com.yakupcan.nobetcieczane
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

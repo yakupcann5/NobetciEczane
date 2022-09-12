@@ -1,9 +1,9 @@
-package com.android.nobetcieczane.di
+package com.yakupcan.nobetcieczane.di
 
-import com.android.nobetcieczane.data.Service
-import com.android.nobetcieczane.data.repository.RepositoryImpl
-import com.android.nobetcieczane.domain.repository.PharmacyRepository
-import com.android.nobetcieczane.common.Constants
+import com.yakupcan.nobetcieczane.data.Service
+import com.yakupcan.nobetcieczane.data.repository.RepositoryImpl
+import com.yakupcan.nobetcieczane.domain.repository.PharmacyRepository
+import com.yakupcan.nobetcieczane.common.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.ui.maps
+package com.yakupcan.nobetcieczane.ui.maps
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -8,20 +8,20 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.nobetcieczane.common.RequestState
-import com.android.nobetcieczane.data.model.DataDto
-import com.android.nobetcieczane.domain.model.Info
-import com.android.nobetcieczane.domain.use_case.getPharmcy.GetPharmacyUseCase
-import com.android.nobetcieczane.util.MyPreferences
+import com.yakupcan.nobetcieczane.common.RequestState
+import com.yakupcan.nobetcieczane.data.model.DataDto
+import com.yakupcan.nobetcieczane.domain.model.Info
+import com.yakupcan.nobetcieczane.domain.use_case.getPharmcy.GetPharmacyUseCase
+import com.yakupcan.nobetcieczane.util.MyPreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
-import com.android.nobetcieczane.domain.model.Marker
-import com.android.nobetcieczane.domain.model.NowLocation
-import com.android.nobetcieczane.domain.model.Pharmacy
+import com.yakupcan.nobetcieczane.domain.model.Marker
+import com.yakupcan.nobetcieczane.domain.model.NowLocation
+import com.yakupcan.nobetcieczane.domain.model.Pharmacy
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 

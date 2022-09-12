@@ -1,10 +1,10 @@
-package com.android.nobetcieczane.ui.listfragment
+package com.yakupcan.nobetcieczane.ui.listfragment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.nobetcieczane.data.model.DataDto
-import com.android.nobetcieczane.domain.use_case.getPharmcy.GetPharmacyUseCase
-import com.android.nobetcieczane.common.RequestState
+import com.yakupcan.nobetcieczane.data.model.DataDto
+import com.yakupcan.nobetcieczane.domain.use_case.getPharmcy.GetPharmacyUseCase
+import com.yakupcan.nobetcieczane.common.RequestState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

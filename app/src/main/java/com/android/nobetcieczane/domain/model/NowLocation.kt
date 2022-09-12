@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.domain.model
+package com.yakupcan.nobetcieczane.domain.model
 
 data class NowLocation(
     val sehir: String? = "",

@@ -1,8 +1,8 @@
-package com.android.nobetcieczane.util
+package com.yakupcan.nobetcieczane.util
 
 import android.content.SharedPreferences
 import android.util.Log
-import com.android.nobetcieczane.data.model.DataDto
+import com.yakupcan.nobetcieczane.data.model.DataDto
 import com.google.gson.Gson
 import javax.inject.Inject
 

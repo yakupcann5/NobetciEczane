@@ -1,8 +1,8 @@
-package com.android.nobetcieczane.ui.splash
+package com.yakupcan.nobetcieczane.ui.splash
 
 import androidx.lifecycle.ViewModel
-import com.android.nobetcieczane.domain.use_case.getPharmcy.GetPharmacyUseCase
-import com.android.nobetcieczane.util.MyPreferences
+import com.yakupcan.nobetcieczane.domain.use_case.getPharmcy.GetPharmacyUseCase
+import com.yakupcan.nobetcieczane.util.MyPreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

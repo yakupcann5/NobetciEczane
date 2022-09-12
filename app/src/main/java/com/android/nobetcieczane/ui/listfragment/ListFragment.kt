@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.ui.listfragment
+package com.yakupcan.nobetcieczane.ui.listfragment
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -13,11 +13,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
-import com.android.nobetcieczane.R
-import com.android.nobetcieczane.common.RequestState
-import com.android.nobetcieczane.data.model.DataDto
-import com.android.nobetcieczane.databinding.FragmentListBinding
-import com.android.nobetcieczane.databinding.TabBarLayoutBinding
+import com.yakupcan.nobetcieczane.R
+import com.yakupcan.nobetcieczane.common.RequestState
+import com.yakupcan.nobetcieczane.data.model.DataDto
+import com.yakupcan.nobetcieczane.databinding.FragmentListBinding
+import com.yakupcan.nobetcieczane.databinding.TabBarLayoutBinding
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import dagger.hilt.android.AndroidEntryPoint

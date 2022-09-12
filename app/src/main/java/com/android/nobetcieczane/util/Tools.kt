@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.util
+package com.yakupcan.nobetcieczane.util
 
 import android.util.Log
 import android.view.View

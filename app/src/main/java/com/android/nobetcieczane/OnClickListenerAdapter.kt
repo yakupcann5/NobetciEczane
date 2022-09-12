@@ -1,4 +1,4 @@
-package com.android.nobetcieczane
+package com.yakupcan.nobetcieczane
 
 interface OnClickListenerAdapter {
     fun onClick(position: Int)

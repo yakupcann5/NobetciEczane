@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.domain.model
+package com.yakupcan.nobetcieczane.domain.model
 
 import com.google.gson.Gson
 import java.io.Serializable

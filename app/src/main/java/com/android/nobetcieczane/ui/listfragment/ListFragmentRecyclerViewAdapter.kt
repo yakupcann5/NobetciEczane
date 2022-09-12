@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.ui.listfragment
+package com.yakupcan.nobetcieczane.ui.listfragment
 
 import android.content.Context
 import android.content.Intent
@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.android.nobetcieczane.R
-import com.android.nobetcieczane.data.model.DataDto
-import com.android.nobetcieczane.databinding.PharmacyOnDutyRecyclerRowBinding
-import com.android.nobetcieczane.util.Tools
-import com.android.nobetcieczane.util.ViewAnimation
+import com.yakupcan.nobetcieczane.R
+import com.yakupcan.nobetcieczane.data.model.DataDto
+import com.yakupcan.nobetcieczane.databinding.PharmacyOnDutyRecyclerRowBinding
+import com.yakupcan.nobetcieczane.util.Tools
+import com.yakupcan.nobetcieczane.util.ViewAnimation
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 

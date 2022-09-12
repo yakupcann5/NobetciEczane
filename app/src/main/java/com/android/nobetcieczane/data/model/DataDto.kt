@@ -1,6 +1,6 @@
-package com.android.nobetcieczane.data.model
+package com.yakupcan.nobetcieczane.data.model
 
-import com.android.nobetcieczane.domain.model.Pharmacy
+import com.yakupcan.nobetcieczane.domain.model.Pharmacy
 import com.google.gson.annotations.SerializedName
 
 class DataDto(

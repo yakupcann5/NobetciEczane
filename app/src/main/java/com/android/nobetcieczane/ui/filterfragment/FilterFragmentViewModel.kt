@@ -1,7 +1,7 @@
-package com.android.nobetcieczane.ui.filterfragment
+package com.yakupcan.nobetcieczane.ui.filterfragment
 
 import androidx.lifecycle.ViewModel
-import com.android.nobetcieczane.util.MyPreferences
+import com.yakupcan.nobetcieczane.util.MyPreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

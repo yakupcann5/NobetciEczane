@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.common
+package com.yakupcan.nobetcieczane.common
 
 sealed class RequestState<T>(val data: T? = null) {
     class Loading<T> : RequestState<T>()

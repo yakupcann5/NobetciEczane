@@ -1,4 +1,4 @@
-package com.android.nobetcieczane.ui.splash
+package com.yakupcan.nobetcieczane.ui.splash
 
 import android.Manifest
 import android.content.Intent
@@ -23,8 +23,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.android.nobetcieczane.R
-import com.android.nobetcieczane.databinding.FragmentSplashBinding
+import com.yakupcan.nobetcieczane.R
+import com.yakupcan.nobetcieczane.databinding.FragmentSplashBinding
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
