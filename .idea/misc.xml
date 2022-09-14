@@ -84,7 +84,8 @@
         <entry key="app/src/main/res/layout/fragment_map_with_bottomsheet.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.19583333333333333" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/pharmacy_on_duty_recycler_row.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/pharmacy_on_duty_recycler_row.xml" value="0.25" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>

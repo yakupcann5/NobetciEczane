@@ -1,5 +1,6 @@
 package com.yakupcan.nobetcieczane.ui.maps
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -133,9 +135,30 @@ class MapsFragment : Fragment(), View.OnClickListener {
                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(nowLocation[0], 13f))
                     map.mapType = GoogleMap.MAP_TYPE_NORMAL
                 }
+                if (pharmacyList.size == 0) {
+                    val alertDialog =
+                        AlertDialog.Builder(this.requireContext()).setTitle(R.string.error)
+                            .setMessage(R.string.not_found_pharmacy).setCancelable(true)
+                            .setPositiveButton(R.string.cancel,
+                                DialogInterface.OnClickListener { dialogInterface, i ->
+                                    dialogInterface.cancel()
+                                })
+                    alertDialog.show()
+                }
             })
             binding.mainLayout.nowLocation.setOnClickListener {
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(nowLocation[0], 15f))
+                if (nowLocation.size == 0) {
+                    val alertDialog =
+                        AlertDialog.Builder(this.requireContext()).setTitle(R.string.error)
+                            .setMessage(R.string.now_location_failed).setCancelable(true)
+                            .setPositiveButton(R.string.cancel,
+                                DialogInterface.OnClickListener { dialogInterface, i ->
+                                    dialogInterface.cancel()
+                                })
+                    alertDialog.show()
+                } else {
+                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(nowLocation[0], 15f))
+                }
             }
             map.setOnMarkerClickListener { marker ->
                 viewModel.infoList.observe(viewLifecycleOwner, Observer { list ->

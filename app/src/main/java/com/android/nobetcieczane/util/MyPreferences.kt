@@ -1,5 +1,6 @@
 package com.yakupcan.nobetcieczane.util
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import com.yakupcan.nobetcieczane.data.model.DataDto
@@ -19,6 +20,7 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
     val PHONE_NUMBER = "phone_number"
     val BOTTOM_SHEET_LNG = "bottom_sheet_lng"
     val BOTTOM_SHEET_LAT = "bottom_sheet_lat"
+
 
 
     fun setData(pharmacy: ArrayList<DataDto>) {

@@ -66,7 +66,11 @@ class ListFragment : Fragment(), View.OnClickListener {
                 when (requestState) {
                     is RequestState.Success -> {
                         requestState.data?.let {
-                            initRecycler(it)
+                            if (it.size == 0) {
+                                binding.notFoundPharmacy.visibility =View.VISIBLE
+                            } else {
+                                initRecycler(it)
+                            }
                         }
                     }
                     else -> {}

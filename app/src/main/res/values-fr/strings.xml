@@ -29,5 +29,8 @@
     <string name="list_banner">ca-app-pub-7856290377548275/9128936160</string>
     <string name="detail_sheet_banner">ca-app-pub-7856290377548275/4663324967</string>
     <string name="list_sheet_banner">ca-app-pub-7856290377548275/1012688712</string>
+    <string name="error">Erreur</string>
+    <string name="now_location_failed">Impossible dobtenir votre position</string>
+    <string name="not_found_pharmacy">La pharmacie est introuvable</string>
 
 </resources>

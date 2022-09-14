@@ -18,6 +18,23 @@
         android:layout_below="@id/list_fragment_tab_bar"
         ads:adSize="BANNER"
         ads:adUnitId="@string/list_banner" />
+    <LinearLayout
+        android:id="@+id/not_found_pharmacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_black"
+        android:layout_below="@+id/list_frag_adMob"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/not_found_pharmacy"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pharmacy_recyclerView"
