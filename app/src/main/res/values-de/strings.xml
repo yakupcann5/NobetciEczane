@@ -32,5 +32,6 @@
     <string name="error">Error</string>
     <string name="now_location_failed">Kann Ihren Standort nicht abrufen</string>
     <string name="not_found_pharmacy">Apotheke wird nicht gefunden</string>
+    <string name="try_again">Versuch es noch einmal</string>
 
 </resources>

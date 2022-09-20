@@ -142,7 +142,9 @@ class MapsFragment : Fragment(), View.OnClickListener {
                             .setPositiveButton(R.string.cancel,
                                 DialogInterface.OnClickListener { dialogInterface, i ->
                                     dialogInterface.cancel()
-                                })
+                                }).setNegativeButton(R.string.try_again, DialogInterface.OnClickListener{ dialogInterface, i ->
+                                    findNavController().navigate(R.id.action_mapsFragment2_to_splashFragment)
+                            })
                     alertDialog.show()
                 }
             })

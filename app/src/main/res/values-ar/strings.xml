@@ -32,5 +32,6 @@
     <string name="error">خطأ</string>
     <string name="now_location_failed">لا يمكن الحصول على موقعك</string>
     <string name="not_found_pharmacy">لا يوجد صيدلية</string>
+    <string name="try_again">حاول ثانية</string>
 
 </resources>
