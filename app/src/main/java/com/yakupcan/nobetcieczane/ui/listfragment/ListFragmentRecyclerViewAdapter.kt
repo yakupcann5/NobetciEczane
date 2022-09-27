@@ -56,6 +56,13 @@ class ListFragmentRecyclerViewAdapter(
             intent.data = Uri.parse("tel:${holder.sentBinding.pharmacyPhoneNumber.text}")
             startActivity(context, intent, null)
         }
+        holder.sentBinding.pharmacyDirections.setOnClickListener {
+            val gmmIntentUri =
+                Uri.parse("google.navigation:q=${holder.sentBinding.pharmacy!!.latitude}, ${holder.sentBinding.pharmacy!!.longitude}")
+            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+            mapIntent.setPackage("com.google.android.apps.maps")
+            startActivity(context, mapIntent, null)
+        }
     }
 
     private fun toggleSectionText(view: View, binding: PharmacyOnDutyRecyclerRowBinding) {

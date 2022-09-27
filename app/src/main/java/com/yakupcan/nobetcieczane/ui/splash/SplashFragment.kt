@@ -1,6 +1,7 @@
 package com.yakupcan.nobetcieczane.ui.splash
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
@@ -18,6 +19,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -42,10 +44,6 @@ class SplashFragment : Fragment(), LocationListener {
     private lateinit var flpc: FusedLocationProviderClient
     private lateinit var locationTask: Task<Location>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -67,12 +65,18 @@ class SplashFragment : Fragment(), LocationListener {
             when {
                 permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
                     // Precise location access granted.
-                    location()
                     checked()
+
+                    Log.d("yakup", "location: 3")
+/*
+                    checked()
+*/
                 }
                 permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                     // Only approximate location access granted.
+/*
                     location()
+*/
                 }
                 else -> {
                     // No location access granted.
@@ -87,11 +91,12 @@ class SplashFragment : Fragment(), LocationListener {
             )
         )
     }
+
     private fun getLocationInformation() {
         locationTask.addOnSuccessListener {
             if (it != null) {
                 onLocationChanged(it)
-                checked()
+                //checked()
                 splashViewModel.saveLocationLatLng(it.latitude, it.longitude)
             }
         }.addOnFailureListener { it -> Log.d("Location Error", it.localizedMessage) }
@@ -121,10 +126,11 @@ class SplashFragment : Fragment(), LocationListener {
 
 
     private fun location() {
-        permissionControl = ContextCompat.checkSelfPermission(
+/*        permissionControl = ContextCompat.checkSelfPermission(
             this.requireContext(),
             Manifest.permission.ACCESS_FINE_LOCATION
         )
+        Log.d("yakup", "location: 1")
         if (permissionControl != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
                 this.requireActivity(),
@@ -132,17 +138,29 @@ class SplashFragment : Fragment(), LocationListener {
                 100
             )
         } else {
+            Log.d("yakup", "location: 2")
             locationTask = flpc.lastLocation
             getLocationInformation()
 
-        }
+        }*/
     }
 
     override fun onLocationChanged(location: Location) {
         val geocoder = Geocoder(this.requireContext(), Locale.getDefault())
         val locationList = geocoder.getFromLocation(location.latitude, location.longitude, 1)
         locationList.forEach {
-            splashViewModel.saveCityTown(it.adminArea,it.subAdminArea)
+            if (it == null) {
+                val alertDialog =
+                    AlertDialog.Builder(this.requireContext()).setTitle(R.string.settings)
+                        .setMessage(R.string.new_update).setCancelable(true)
+                        .setPositiveButton(R.string.cancel,
+                            DialogInterface.OnClickListener { dialogInterface, i ->
+                                dialogInterface.cancel()
+                            })
+                alertDialog.show()
+            } else {
+                splashViewModel.saveCityTown(it.adminArea, it.subAdminArea)
+            }
         }
     }
 
@@ -154,8 +172,19 @@ class SplashFragment : Fragment(), LocationListener {
         val task = client.checkLocationSettings(builder.build())
 
         task.addOnSuccessListener {
-            Log.d("location settings", it.toString())
-            //location()
+            if (ActivityCompat.checkSelfPermission(
+                    this.requireContext(),
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                    this.requireContext(),
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                findNavController().navigate(R.id.action_splashFragment_to_filterFragment)
+            } else {
+                locationTask = flpc.lastLocation
+                getLocationInformation()
+            }
         }
         task.addOnFailureListener {
             if (it is ResolvableApiException) {
@@ -168,7 +197,7 @@ class SplashFragment : Fragment(), LocationListener {
             }
         }
     }
-
+/*
     @Deprecated(
         "Deprecated in Java", ReplaceWith(
             "super.onActivityResult(requestCode, resultCode, data)",
@@ -183,6 +212,5 @@ class SplashFragment : Fragment(), LocationListener {
             Log.d("result cancelled", data.toString())
         }
         super.onActivityResult(requestCode, resultCode, data)
-    }
-
+    }*/
 }

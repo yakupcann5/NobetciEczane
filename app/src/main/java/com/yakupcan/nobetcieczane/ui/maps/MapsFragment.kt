@@ -25,6 +25,8 @@ import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.play.core.review.ReviewManagerFactory
+import com.google.android.play.core.review.model.ReviewErrorCode
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -51,6 +53,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
         MobileAds.initialize(this.requireContext())
         val adRequest = AdRequest.Builder().build()
         binding.bottomsheet.adMob.loadAd(adRequest)
+        inAppReviews()
     }
 
     override fun onClick(v: View?) {
@@ -228,6 +231,23 @@ class MapsFragment : Fragment(), View.OnClickListener {
             })
         } else {
             binding.settingsSheet.constraint.visibility = View.GONE
+        }
+    }
+
+    private fun inAppReviews() {
+        val manager = ReviewManagerFactory.create(this.requireContext())
+        val request = manager.requestReviewFlow()
+        request.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                // We got the ReviewInfo object
+                val reviewInfo = task.result
+                val flow = manager.launchReviewFlow(this.requireActivity(),reviewInfo)
+                flow.addOnCompleteListener {
+
+                }
+            } else {
+                // There was some problem, log or handle the error code.
+            }
         }
     }
 }
