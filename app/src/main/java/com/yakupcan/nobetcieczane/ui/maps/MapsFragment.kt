@@ -13,8 +13,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.yakupcan.nobetcieczane.R
-import com.yakupcan.nobetcieczane.databinding.FragmentMapWithBottomsheetBinding
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -22,30 +20,29 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
-import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.play.core.review.ReviewManagerFactory
-import com.google.android.play.core.review.model.ReviewErrorCode
+import com.yakupcan.nobetcieczane.R
+import com.yakupcan.nobetcieczane.databinding.FragmentMapWithBottomsheetBinding
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 
 @AndroidEntryPoint
 class MapsFragment : Fragment(), View.OnClickListener {
-    private lateinit var binding: FragmentMapWithBottomsheetBinding
-    private val viewModel: MapsFragmentViewModel by viewModels()
+    private lateinit var binding : FragmentMapWithBottomsheetBinding
+    private val viewModel : MapsFragmentViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+        inflater : LayoutInflater, container : ViewGroup?,
+        savedInstanceState : Bundle?
+    ) : View {
         binding = FragmentMapWithBottomsheetBinding.inflate(layoutInflater)
         MobileAds.initialize(this.requireContext()) {}
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
         initViews()
         mapReady()
         setBottomSettingSheet(false)
@@ -56,28 +53,34 @@ class MapsFragment : Fragment(), View.OnClickListener {
         inAppReviews()
     }
 
-    override fun onClick(v: View?) {
+    override fun onClick(v : View?) {
         when (v?.id) {
             R.id.filter_fragment_open_bttn -> {
                 findNavController().navigate(R.id.action_mapsFragment2_to_listFragment2)
             }
+
             R.id.settings_button -> {
                 setBottomSettingSheet(true)
             }
+
             R.id.setting_sheet_settings_text -> {
                 findNavController().navigate(R.id.action_mapsFragment2_to_settingsFragment)
             }
+
             R.id.setting_sheet_vote_text -> {
                 Toast.makeText(requireContext(), "oylama", Toast.LENGTH_SHORT).show()
             }
+
             R.id.setting_sheet_share_text -> {
                 Toast.makeText(requireContext(), "paylaş", Toast.LENGTH_SHORT).show()
             }
+
             R.id.pharmacyCall -> {
                 val intent = Intent(Intent.ACTION_DIAL);
                 intent.data = Uri.parse("tel:${viewModel.getPhoneNum()}")
                 startActivity(intent)
             }
+
             R.id.pharmacyDirections -> {
                 val gmmIntentUri =
                     Uri.parse("google.navigation:q=${viewModel.getMarkerLat()}, ${viewModel.getMarkerLng()}")
@@ -105,7 +108,12 @@ class MapsFragment : Fragment(), View.OnClickListener {
         bottomSheetBehavior.peekHeight = binding.bottomsheet.constraint.height
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync { map ->
-            map.setMapStyle(MapStyleOptions.loadRawResourceStyle(this.requireContext(),R.raw.style_json))
+            map.setMapStyle(
+                MapStyleOptions.loadRawResourceStyle(
+                    this.requireContext(),
+                    R.raw.style_json
+                )
+            )
             val pharmacyList = arrayListOf<LatLng>()
             val nowLocation = arrayListOf<LatLng>()
             viewModel.markerList.observe(viewLifecycleOwner, Observer { list ->
@@ -145,9 +153,11 @@ class MapsFragment : Fragment(), View.OnClickListener {
                             .setPositiveButton(R.string.cancel,
                                 DialogInterface.OnClickListener { dialogInterface, i ->
                                     dialogInterface.cancel()
-                                }).setNegativeButton(R.string.try_again, DialogInterface.OnClickListener{ dialogInterface, i ->
+                                }).setNegativeButton(
+                                R.string.try_again,
+                                DialogInterface.OnClickListener { dialogInterface, i ->
                                     findNavController().navigate(R.id.action_mapsFragment2_to_splashFragment)
-                            })
+                                })
                     alertDialog.show()
                 }
             })
@@ -182,18 +192,20 @@ class MapsFragment : Fragment(), View.OnClickListener {
 
                             bottomSheetBehavior.setBottomSheetCallback(object :
                                 BottomSheetBehavior.BottomSheetCallback() {
-                                override fun onStateChanged(bottomSheet: View, newState: Int) {
+                                override fun onStateChanged(bottomSheet : View, newState : Int) {
                                     when (newState) {
                                         BottomSheetBehavior.STATE_DRAGGING, BottomSheetBehavior.STATE_SETTLING -> {}
+
                                         BottomSheetBehavior.STATE_HIDDEN -> {
                                             bottomSheetBehavior.peekHeight = 0
                                             binding.bottomsheet.constraint.visibility = View.GONE
                                         }
+
                                         else -> {}
                                     }
                                 }
 
-                                override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+                                override fun onSlide(bottomSheet : View, slideOffset : Float) {}
                             })
                         }
 
@@ -210,7 +222,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun setBottomSettingSheet(isVisible: Boolean) {
+    private fun setBottomSettingSheet(isVisible : Boolean) {
         val bottomSheetSetting = BottomSheetBehavior.from(binding.settingsSheet.root)
         bottomSheetSetting.state = BottomSheetBehavior.STATE_HIDDEN
         bottomSheetSetting.peekHeight = binding.settingsSheet.constraint.height
@@ -219,15 +231,17 @@ class MapsFragment : Fragment(), View.OnClickListener {
             bottomSheetSetting.state = BottomSheetBehavior.STATE_EXPANDED
             bottomSheetSetting.setBottomSheetCallback(object :
                 BottomSheetBehavior.BottomSheetCallback() {
-                override fun onStateChanged(bottomSheet: View, newState: Int) {
+                override fun onStateChanged(bottomSheet : View, newState : Int) {
                     when (newState) {
                         BottomSheetBehavior.STATE_DRAGGING, BottomSheetBehavior.STATE_SETTLING -> {}
+
                         BottomSheetBehavior.STATE_HIDDEN -> {}
+
                         else -> {}
                     }
                 }
 
-                override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+                override fun onSlide(bottomSheet : View, slideOffset : Float) {}
             })
         } else {
             binding.settingsSheet.constraint.visibility = View.GONE
@@ -241,7 +255,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
             if (task.isSuccessful) {
                 // We got the ReviewInfo object
                 val reviewInfo = task.result
-                val flow = manager.launchReviewFlow(this.requireActivity(),reviewInfo)
+                val flow = manager.launchReviewFlow(this.requireActivity(), reviewInfo)
                 flow.addOnCompleteListener {
 
                 }
