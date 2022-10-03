@@ -30,19 +30,19 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MapsFragment : Fragment(), View.OnClickListener {
-    private lateinit var binding : FragmentMapWithBottomsheetBinding
-    private val viewModel : MapsFragmentViewModel by viewModels()
+    private lateinit var binding: FragmentMapWithBottomsheetBinding
+    private val viewModel: MapsFragmentViewModel by viewModels()
 
     override fun onCreateView(
-        inflater : LayoutInflater, container : ViewGroup?,
-        savedInstanceState : Bundle?
-    ) : View {
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentMapWithBottomsheetBinding.inflate(layoutInflater)
         MobileAds.initialize(this.requireContext()) {}
         return binding.root
     }
 
-    override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViews()
         mapReady()
         setBottomSettingSheet(false)
@@ -53,7 +53,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
         inAppReviews()
     }
 
-    override fun onClick(v : View?) {
+    override fun onClick(v: View?) {
         when (v?.id) {
             R.id.filter_fragment_open_bttn -> {
                 findNavController().navigate(R.id.action_mapsFragment2_to_listFragment2)
@@ -116,7 +116,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
             )
             val pharmacyList = arrayListOf<LatLng>()
             val nowLocation = arrayListOf<LatLng>()
-            viewModel.markerList.observe(viewLifecycleOwner, Observer { list ->
+            viewModel.markerList.observe(viewLifecycleOwner) { list ->
                 list.forEach {
                     pharmacyList.add(LatLng(it.latitude!!, it.longitude!!))
                     map.addMarker(
@@ -141,42 +141,43 @@ class MapsFragment : Fragment(), View.OnClickListener {
                                 viewModel.getLng().toDouble()
                             )
                         ).icon(viewModel.bitmapDescriptor(requireContext(), R.drawable.ic_nowhere))
-                            .title(getString(R.string.now_here)).flat(true)
+                            .title(getString(R.string.now_here))
                     )
-                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(nowLocation[0], 13f))
+                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(pharmacyList[0], 12f))
                     map.mapType = GoogleMap.MAP_TYPE_NORMAL
                 }
                 if (pharmacyList.size == 0) {
                     val alertDialog =
                         AlertDialog.Builder(this.requireContext()).setTitle(R.string.error)
                             .setMessage(R.string.not_found_pharmacy).setCancelable(true)
-                            .setPositiveButton(R.string.cancel,
-                                DialogInterface.OnClickListener { dialogInterface, i ->
-                                    dialogInterface.cancel()
-                                }).setNegativeButton(
-                                R.string.try_again,
-                                DialogInterface.OnClickListener { dialogInterface, i ->
-                                    findNavController().navigate(R.id.action_mapsFragment2_to_splashFragment)
-                                })
+                            .setPositiveButton(
+                                R.string.cancel
+                            ) { dialogInterface, _ ->
+                                dialogInterface.cancel()
+                            }.setNegativeButton(
+                                R.string.try_again
+                            ) { _, _ ->
+                                findNavController().navigate(R.id.action_mapsFragment2_to_filterFragment)
+                            }
                     alertDialog.show()
                 }
-            })
+            }
             binding.mainLayout.nowLocation.setOnClickListener {
                 if (nowLocation.size == 0) {
                     val alertDialog =
                         AlertDialog.Builder(this.requireContext()).setTitle(R.string.error)
                             .setMessage(R.string.now_location_failed).setCancelable(true)
-                            .setPositiveButton(R.string.cancel,
-                                DialogInterface.OnClickListener { dialogInterface, i ->
-                                    dialogInterface.cancel()
-                                })
+                            .setPositiveButton(R.string.cancel) { dialogInterface, _ ->
+                                dialogInterface.cancel()
+                            }
                     alertDialog.show()
                 } else {
                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(nowLocation[0], 15f))
                 }
             }
             map.setOnMarkerClickListener { marker ->
-                viewModel.infoList.observe(viewLifecycleOwner, Observer { list ->
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 15f))
+                viewModel.infoList.observe(viewLifecycleOwner) { list ->
                     list.forEach {
                         if (marker.title == it.eczaneAdi) {
                             binding.bottomsheet.constraint.visibility = View.VISIBLE
@@ -192,7 +193,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
 
                             bottomSheetBehavior.setBottomSheetCallback(object :
                                 BottomSheetBehavior.BottomSheetCallback() {
-                                override fun onStateChanged(bottomSheet : View, newState : Int) {
+                                override fun onStateChanged(bottomSheet: View, newState: Int) {
                                     when (newState) {
                                         BottomSheetBehavior.STATE_DRAGGING, BottomSheetBehavior.STATE_SETTLING -> {}
 
@@ -205,12 +206,12 @@ class MapsFragment : Fragment(), View.OnClickListener {
                                     }
                                 }
 
-                                override fun onSlide(bottomSheet : View, slideOffset : Float) {}
+                                override fun onSlide(bottomSheet: View, slideOffset: Float) {}
                             })
                         }
 
                     }
-                })
+                }
                 setBottomSettingSheet(false)
                 return@setOnMarkerClickListener false
             }
@@ -222,7 +223,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun setBottomSettingSheet(isVisible : Boolean) {
+    private fun setBottomSettingSheet(isVisible: Boolean) {
         val bottomSheetSetting = BottomSheetBehavior.from(binding.settingsSheet.root)
         bottomSheetSetting.state = BottomSheetBehavior.STATE_HIDDEN
         bottomSheetSetting.peekHeight = binding.settingsSheet.constraint.height
@@ -231,7 +232,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
             bottomSheetSetting.state = BottomSheetBehavior.STATE_EXPANDED
             bottomSheetSetting.setBottomSheetCallback(object :
                 BottomSheetBehavior.BottomSheetCallback() {
-                override fun onStateChanged(bottomSheet : View, newState : Int) {
+                override fun onStateChanged(bottomSheet: View, newState: Int) {
                     when (newState) {
                         BottomSheetBehavior.STATE_DRAGGING, BottomSheetBehavior.STATE_SETTLING -> {}
 
@@ -241,7 +242,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
                     }
                 }
 
-                override fun onSlide(bottomSheet : View, slideOffset : Float) {}
+                override fun onSlide(bottomSheet: View, slideOffset: Float) {}
             })
         } else {
             binding.settingsSheet.constraint.visibility = View.GONE

@@ -2,6 +2,7 @@ package com.yakupcan.nobetcieczane.ui.splash
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.location.Geocoder
@@ -38,26 +39,26 @@ import java.util.*
 
 @AndroidEntryPoint
 class SplashFragment : Fragment(), LocationListener {
-    private lateinit var binding : FragmentSplashBinding
-    private val splashViewModel : SplashViewModel by viewModels()
+    private lateinit var binding: FragmentSplashBinding
+    private val splashViewModel: SplashViewModel by viewModels()
     private var permissionControl = 0
-    private lateinit var flpc : FusedLocationProviderClient
-    private lateinit var locationTask : Task<Location>
+    private lateinit var flpc: FusedLocationProviderClient
+    private lateinit var locationTask: Task<Location>
 
     override fun onCreateView(
-        inflater : LayoutInflater, container : ViewGroup?,
-        savedInstanceState : Bundle?
-    ) : View {
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentSplashBinding.inflate(inflater)
         flpc = LocationServices.getFusedLocationProviderClient(this.requireContext())
-        Handler(Looper.getMainLooper()).postDelayed({
+        /*Handler(Looper.getMainLooper()).postDelayed({
             findNavController().navigate(R.id.action_splashFragment_to_mapsFragment2)
-        }, 5000)
+        }, 5000)*/
         return binding.root
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         //onLocationChanged(splashViewModel.getLat(),splashViewModel.getLng())
         checkPermissions()
     }
@@ -113,27 +114,27 @@ class SplashFragment : Fragment(), LocationListener {
         }.addOnFailureListener { it -> Log.d("Location Error", it.localizedMessage.toString()) }
     }
 
-//    @SuppressLint("MissingSuperCall")
-//    override fun onRequestPermissionsResult(
-//        requestCode: Int,
-//        permissions: Array<out String>,
-//        grantResults: IntArray
-//    ) {
-//        if (requestCode == 100) {
-//            if (permissions.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                Log.d("yakup", "izin alındı")
-//                getLocationInformation()
-//
-//            } else {
-//                permissionControl = ContextCompat.checkSelfPermission(
-//                    this.requireContext(),
-//                    Manifest.permission.ACCESS_FINE_LOCATION
-//                )
-//                locationTask = flpc.lastLocation
-//                getLocationInformation()
-//            }
-//        }
-//    }
+    /*@SuppressLint("MissingSuperCall")
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == 100) {
+            if (permissions.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.d("yakup", "izin alındı")
+                getLocationInformation()
+
+            } else {
+                permissionControl = ContextCompat.checkSelfPermission(
+                    this.requireContext(),
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                )
+                locationTask = flpc.lastLocation
+                getLocationInformation()
+            }
+        }
+    }*/
 
 
     private fun location() {
@@ -156,7 +157,7 @@ class SplashFragment : Fragment(), LocationListener {
         }*/
     }
 
-    override fun onLocationChanged(location : Location) {
+    override fun onLocationChanged(location: Location) {
         Log.d("Onlocationchanged: ", "Girdi")
         val geocoder = Geocoder(this.requireContext(), Locale.getDefault())
         val locationList = geocoder.getFromLocation(location.latitude, location.longitude, 1)
@@ -164,19 +165,23 @@ class SplashFragment : Fragment(), LocationListener {
             it?.toString()?.let { it1 -> Log.d("Address: ", it1) }
             if (it == null) {
                 val alertDialog =
-                    AlertDialog.Builder(this.requireContext()).setTitle(R.string.settings)
-                        .setMessage(R.string.new_update).setCancelable(true)
-                        .setPositiveButton(
-                            R.string.cancel
-                        ) { dialogInterface, _ ->
-                            dialogInterface.cancel()
+                    AlertDialog.Builder(this.requireContext()).setTitle(R.string.error)
+                        .setMessage(R.string.not_found_pharmacy).setCancelable(true)
+                        .setPositiveButton(R.string.cancel,
+                            DialogInterface.OnClickListener { dialogInterface, i ->
+                                dialogInterface.cancel()
+                            }).setNegativeButton(
+                            R.string.try_again
+                        ) { _, _ ->
+                            onStart()
                         }
                 alertDialog.show()
             } else {
                 Log.d("Latitude: ", it.latitude.toString())
                 Log.d("Longitude: ", it.longitude.toString())
-                splashViewModel.saveLocationLatLng(it.latitude, it.longitude)
+                //splashViewModel.saveLocationLatLng(it.latitude, it.longitude)
                 splashViewModel.saveCityTown(it.adminArea, it.subAdminArea)
+                findNavController().navigate(R.id.action_splashFragment_to_mapsFragment2)
             }
         }
     }
@@ -195,11 +200,11 @@ class SplashFragment : Fragment(), LocationListener {
         task.addOnFailureListener {
             if (it is ResolvableApiException) {
                 try {
-                    val intentSenderRequest : IntentSenderRequest =
+                    val intentSenderRequest: IntentSenderRequest =
                         IntentSenderRequest.Builder(it.resolution.intentSender)
                             .build()
                     locationRequestHandler.launch(intentSenderRequest)
-                } catch (sendEx : IntentSender.SendIntentException) {
+                } catch (sendEx: IntentSender.SendIntentException) {
                     // Ignore the error.
                 }
             }

@@ -6,10 +6,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".Application"
@@ -50,7 +49,7 @@
         <!--        </activity>-->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7856290377548275~3265730817"/>
+            android:value="ca-app-pub-7856290377548275~3265730817" />
         <activity
             android:name=".ui.MainActivity"
             android:configChanges="orientation|screenSize"
@@ -64,5 +63,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

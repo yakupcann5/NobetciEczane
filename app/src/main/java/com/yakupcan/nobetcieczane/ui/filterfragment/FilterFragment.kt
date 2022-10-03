@@ -66,7 +66,9 @@ class FilterFragment : Fragment(), View.OnClickListener {
                 findNavController().navigate(R.id.action_filterFragment_to_listFragment2)
             }
             R.id.filter_save_button -> {
-                viewModel.setFilterDistrict(binding.districtsSpinner.selectedItem.toString().lowercase())
+                viewModel.setFilterDistrict(
+                    binding.districtsSpinner.selectedItem.toString().lowercase()
+                )
                 viewModel.setDisc(binding.districtsSpinner.selectedItem.toString())
                 findNavController().navigate(R.id.action_filterFragment_to_mapsFragment2)
             }
@@ -91,7 +93,7 @@ class FilterFragment : Fragment(), View.OnClickListener {
         binding.citySpinner.adapter = citiesAdapter
 
         var selectedPositionCity = citiesAdapter.getPosition(viewModel.getCity())
-        if (selectedPositionCity < 0 ) selectedPositionCity = 0
+        if (selectedPositionCity < 0) selectedPositionCity = 0
         binding.citySpinner.setSelection(selectedPositionCity)
 
         districts = model?.data?.get(selectedPositionCity)?.districts as ArrayList<Districts>

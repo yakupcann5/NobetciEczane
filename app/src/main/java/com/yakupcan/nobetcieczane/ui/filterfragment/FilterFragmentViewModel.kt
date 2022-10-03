@@ -6,7 +6,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class FilterFragmentViewModel @Inject constructor(private val preferences: MyPreferences) : ViewModel() {
+class FilterFragmentViewModel @Inject constructor(private val preferences: MyPreferences) :
+    ViewModel() {
     fun setFilterCity(filterCity: String) {
         preferences.setCity(filterCity)
     }

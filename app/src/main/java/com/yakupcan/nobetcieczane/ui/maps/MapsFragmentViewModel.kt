@@ -114,7 +114,7 @@ class MapsFragmentViewModel @Inject constructor(
         return preferences.getMarkerLocationLat()
     }
 
-    fun getMarkerLng():Float {
+    fun getMarkerLng(): Float {
         return preferences.getMarkerLocationLng()
     }
 }

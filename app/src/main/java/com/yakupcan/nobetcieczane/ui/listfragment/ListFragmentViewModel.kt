@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class ListFragmentViewModel @Inject constructor(private var getPharmacyUseCase : GetPharmacyUseCase) :
+class ListFragmentViewModel @Inject constructor(private var getPharmacyUseCase: GetPharmacyUseCase) :
     ViewModel() {
 
     private val _pharmacyState = MutableStateFlow<RequestState<ArrayList<DataDto>>?>(null)

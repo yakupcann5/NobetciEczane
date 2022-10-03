@@ -16,7 +16,7 @@ data class Pharmacy(
     val longitude: Double? = .0
 ) : Serializable
 
-fun Pharmacy.toJSON() : String {
+fun Pharmacy.toJSON(): String {
     val gson = Gson()
     val json = gson.toJson(this)
     return json

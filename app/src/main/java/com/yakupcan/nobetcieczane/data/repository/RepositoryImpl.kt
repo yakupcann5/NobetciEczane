@@ -18,6 +18,6 @@ class RepositoryImpl @Inject constructor(
         town: String?,
         apikey: String?
     ): ArrayList<DataDto> {
-        return api.getPharmacyOnDuty(city,town,apikey).data
+        return api.getPharmacyOnDuty(city, town, apikey).data
     }
 }

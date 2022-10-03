@@ -3,8 +3,10 @@ package com.yakupcan.nobetcieczane
 import com.google.gson.annotations.SerializedName
 
 data class DistrictCityModel
-    (@SerializedName("data")
-     var data: ArrayList<CityDistrictsItem> = arrayListOf())
+    (
+    @SerializedName("data")
+    var data: ArrayList<CityDistrictsItem> = arrayListOf()
+)
 
 data class CityDistrictsItem(
     @SerializedName("value")

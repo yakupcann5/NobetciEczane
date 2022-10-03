@@ -30,6 +30,7 @@ class SettingsFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViews()
     }
+
     private fun initViews() {
         binding.settingsBackButton.setOnClickListener(this)
     }
@@ -40,6 +41,5 @@ class SettingsFragment : Fragment(), View.OnClickListener {
                 findNavController().navigate(R.id.action_settingsFragment_to_mapsFragment2)
             }
         }
-        
     }
 }

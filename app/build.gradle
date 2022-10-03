@@ -17,8 +17,8 @@ android {
         applicationId "com.yakupcan.nobetcieczane"
         minSdk 22
         targetSdk 32
-        versionCode 8
-        versionName "1.1.2"
+        versionCode 10
+        versionName "1.1.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -22,7 +22,6 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
     val BOTTOM_SHEET_LAT = "bottom_sheet_lat"
 
 
-
     fun setData(pharmacy: ArrayList<DataDto>) {
         val gson = Gson()
         val json = gson.toJson(pharmacy)
@@ -78,7 +77,7 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
     }
 
     fun setMarkerLocationLng(markerLng: Double) {
-        sharedPreferences.edit().putFloat(BOTTOM_SHEET_LNG,markerLng.toFloat()).apply()
+        sharedPreferences.edit().putFloat(BOTTOM_SHEET_LNG, markerLng.toFloat()).apply()
     }
 
     fun getMarkerLocationLat(): Float {
@@ -90,7 +89,7 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
     }
 
     fun getFilterCity(): String? {
-        return sharedPreferences.getString(FILTER_CITY,"")
+        return sharedPreferences.getString(FILTER_CITY, "")
     }
 
     fun setFilterCity(filterCity: String) {
@@ -98,7 +97,7 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
     }
 
     fun getFilterDisc(): String? {
-        return sharedPreferences.getString(FILTER_DISTRICT,"")
+        return sharedPreferences.getString(FILTER_DISTRICT, "")
     }
 
     fun setFilterDisc(filterDisc: String) {

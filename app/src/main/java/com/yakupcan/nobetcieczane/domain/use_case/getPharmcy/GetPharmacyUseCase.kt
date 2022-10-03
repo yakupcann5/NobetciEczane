@@ -9,11 +9,18 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class GetPharmacyUseCase @Inject constructor(private var repository: PharmacyRepository, private val preferences: MyPreferences) {
+class GetPharmacyUseCase @Inject constructor(
+    private var repository: PharmacyRepository,
+    private val preferences: MyPreferences
+) {
     operator fun invoke() = flow {
         try {
             emit(RequestState.Loading())
-            val pharmacy = repository.getPharmacy(preferences.getCity(),preferences.getTown(),Constants.API_KEY)
+            val pharmacy = repository.getPharmacy(
+                preferences.getCity(),
+                preferences.getTown(),
+                Constants.API_KEY
+            )
             emit(RequestState.Success(pharmacy))
         } catch (e: HttpException) {
             emit(RequestState.Error(e))
