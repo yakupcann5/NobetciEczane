@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.util.Log
 import com.yakupcan.nobetcieczane.data.model.DataDto
 import com.google.gson.Gson
+import java.util.Locale
 import javax.inject.Inject
 
 
@@ -20,6 +21,9 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
     val PHONE_NUMBER = "phone_number"
     val BOTTOM_SHEET_LNG = "bottom_sheet_lng"
     val BOTTOM_SHEET_LAT = "bottom_sheet_lat"
+    val LANGUAGE = "language"
+    val SELECTED_LANGUAGE = "selected_language"
+    val THEME = "theme"
 
 
     fun setData(pharmacy: ArrayList<DataDto>) {
@@ -102,5 +106,29 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
 
     fun setFilterDisc(filterDisc: String) {
         sharedPreferences.edit().putString(FILTER_DISTRICT, filterDisc).apply()
+    }
+
+    fun getLanguage(): String? {
+        return sharedPreferences.getString(LANGUAGE, "")
+    }
+
+    fun setLanguage(language: String?) {
+        sharedPreferences.edit().putString(LANGUAGE, language).apply()
+    }
+
+    fun getSelectedLanguage(): String? {
+        return sharedPreferences.getString(SELECTED_LANGUAGE, "")
+    }
+
+    fun setSelectedLanguage(selectedLanguage: String?) {
+        sharedPreferences.edit().putString(SELECTED_LANGUAGE, selectedLanguage).apply()
+    }
+
+    fun getSelectedTheme(): String? {
+        return sharedPreferences.getString(THEME, "")
+    }
+
+    fun setSelectedTheme(selectedTheme: String?) {
+        sharedPreferences.edit().putString(THEME,selectedTheme).apply()
     }
 }

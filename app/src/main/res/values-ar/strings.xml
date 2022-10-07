@@ -4,11 +4,11 @@
     <string name="all_pharmacies">كل الصيدليات.</string>
     <string name="now_here">انت هنا الآن</string>
     <string name="directions">احصل على الاتجاهات</string>
-    <string name="call">اتصلي</string>
+    <string name="call">اتصل</string>
     <string name="settings">الإعدادات</string>
     <string name="share">شارك</string>
     <string name="city">مدينة</string>
-    <string name="districts">يصرف</string>
+    <string name="districts">>بلدة</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="language">لغة</string>
     <string name="english">إنجليزي</string>
@@ -20,7 +20,7 @@
     <string name="dark_theme">مظهر داكن</string>
     <string name="light_theme">مظهر خفيف</string>
     <string name="system_default">مظهر خفيف</string>
-    <string name="soon">هكذا</string>
+    <string name="soon">قريبا</string>
     <string name="new_update">قريبًا مع التحديثات الجديدة</string>
     <string name="yes">أجل</string>
     <string name="no">رقم</string>

@@ -97,15 +97,15 @@ class ListFragment : Fragment(), View.OnClickListener {
                 findNavController().navigate(R.id.action_listFragment2_to_mapsFragment2)
             }
             R.id.list_fragment_setting_button -> {
-                //findNavController().navigate(R.id.action_listFragment2_to_settingsFragment)
-                val alertDialog =
+                findNavController().navigate(R.id.action_listFragment2_to_settingsFragment)
+                /*val alertDialog =
                     AlertDialog.Builder(this.requireContext()).setTitle(R.string.settings)
                         .setMessage(R.string.new_update).setCancelable(true)
                         .setPositiveButton(R.string.cancel,
                             DialogInterface.OnClickListener { dialogInterface, i ->
                                 dialogInterface.cancel()
                             })
-                alertDialog.show()
+                alertDialog.show()*/
             }
             R.id.filter_fragment_open_bttn -> {
                 findNavController().navigate(R.id.action_listFragment2_to_filterFragment)
