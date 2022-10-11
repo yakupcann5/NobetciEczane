@@ -29,6 +29,8 @@ class SettingsFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        deneme()
+        selectedLanguage(viewModel.getSelectedLanguage())
         checkedTheme()
         initViews()
     }
@@ -41,8 +43,8 @@ class SettingsFragment : Fragment(), View.OnClickListener {
         binding.radioButtonArabic.setOnClickListener(this)
         binding.lightModeLinear.setOnClickListener(this)
         binding.darkModeLinear.setOnClickListener(this)
-        binding.darkThemeSwitch.setOnClickListener(this)
-        binding.lightThemeSwitch.setOnClickListener(this)
+        binding.darkThemeSwitch.setOnClickListener(null)
+        binding.lightThemeSwitch.setOnClickListener(null)
         if (viewModel.getSelectedTheme() == "night") {
             binding.lightThemeSwitch.isChecked = true
             binding.darkThemeSwitch.isChecked = false
@@ -168,5 +170,39 @@ class SettingsFragment : Fragment(), View.OnClickListener {
         requireActivity().finish()
         requireActivity().overridePendingTransition(0, 0)
         startActivity(intent)
+    }
+
+    private fun selectedLanguage(language: String?) {
+        when (language.toString()) {
+            "en" -> {
+                binding.radioButtonEng.isChecked = true
+                binding.radioButtonFrench.isChecked = false
+                binding.radioButtonArabic.isChecked = false
+                binding.radioButtonGerman.isChecked = false
+            }
+            "ar" -> {
+                binding.radioButtonEng.isChecked = false
+                binding.radioButtonFrench.isChecked = false
+                binding.radioButtonArabic.isChecked = true
+                binding.radioButtonGerman.isChecked = false
+            }
+            "de" -> {
+                binding.radioButtonEng.isChecked = false
+                binding.radioButtonFrench.isChecked = false
+                binding.radioButtonArabic.isChecked = false
+                binding.radioButtonGerman.isChecked = true
+            }
+            "fr" -> {
+                binding.radioButtonEng.isChecked = false
+                binding.radioButtonFrench.isChecked = true
+                binding.radioButtonArabic.isChecked = false
+                binding.radioButtonGerman.isChecked = false
+            }
+        }
+    }
+
+    fun deneme() {
+        binding.darkThemeSwitch.isClickable = false
+        binding.lightThemeSwitch.isClickable = false
     }
 }

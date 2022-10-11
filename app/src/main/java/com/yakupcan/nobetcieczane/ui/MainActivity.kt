@@ -49,6 +49,21 @@ class MainActivity : AppCompatActivity() {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
         val config = resources.configuration
+
+        when (viewModel.getLanguage()) {
+            "en" -> {
+                viewModel.setSelectedLanguage("en")
+            }
+            "ar" -> {
+                viewModel.setSelectedLanguage("ar")
+            }
+            "de" -> {
+                viewModel.setSelectedLanguage("de")
+            }
+            "fr" -> {
+                viewModel.setSelectedLanguage("fr")
+            }
+        }
         val lang = if (viewModel.getLanguage() == null) {
             "tr" // your language code
         } else {
@@ -64,16 +79,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkedTheme() {
         if (viewModel.getSelectedTheme() == null) {
-            if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-                viewModel.setSelectedTheme("dark")
-            } else {
-                viewModel.setSelectedTheme("night")
+            if (viewModel.getSelectedTheme() == "night") {
+                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+                    viewModel.setSelectedTheme("dark")
+                } else {
+                    viewModel.setSelectedTheme("night")
+                }
             }
         } else {
-            if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
-                viewModel.setSelectedTheme("night")
-            } else {
-                viewModel.setSelectedTheme("dark")
+            if (viewModel.getSelectedTheme() == "night") {
+                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+                    viewModel.setSelectedTheme("dark")
+                } else {
+                    viewModel.setSelectedTheme("night")
+                }
             }
         }
     }
