@@ -1,17 +1,14 @@
 package com.yakupcan.nobetcieczane.ui.maps
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
@@ -68,11 +65,23 @@ class MapsFragment : Fragment(), View.OnClickListener {
             }
 
             R.id.setting_sheet_vote_text -> {
-                Toast.makeText(requireContext(), "oylama", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(requireContext(), "oylama", Toast.LENGTH_SHORT).show()
+                val viewIntent = Intent(
+                    "android.intent.action.VIEW",
+                    Uri.parse("https://play.google.com/store/apps/details?id=com.yakupcan.nobetcieczane")
+                )
+                startActivity(viewIntent)
             }
 
             R.id.setting_sheet_share_text -> {
-                Toast.makeText(requireContext(), "paylaş", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(requireContext(), "paylaş", Toast.LENGTH_SHORT).show()
+                val sendIntent: Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.yakupcan.nobetcieczane")
+                    type = "text/plain"
+                }
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
             }
 
             R.id.pharmacyCall -> {
