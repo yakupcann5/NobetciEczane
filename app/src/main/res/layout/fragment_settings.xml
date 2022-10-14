@@ -11,14 +11,13 @@
         android:id="@+id/setting_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
-        android:text="Ayarlar"
+        android:text="@string/settings"
         android:textColor="@color/black"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/lang_text_view"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,124 +33,76 @@
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/check_en"
+        app:layout_constraintBottom_toTopOf="@+id/languageRadioGroup"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/setting_text_view" />
 
-    <CheckBox
-        android:id="@+id/check_en"
+    <RadioGroup
+        android:id="@+id/languageRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:layoutDirection="rtl"
-        android:text="@string/english"
-        android:textDirection="ltr"
-        android:textSize="18sp"
-        android:textStyle="italic"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lang_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/lang_text_view">
 
-    <View
-        android:id="@+id/en_view"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:background="@color/light_black"
-        app:layout_constraintTop_toBottomOf="@+id/check_en" />
+        <RadioButton
+            android:id="@+id/radioButtonEng"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:text="@string/english" />
 
-    <CheckBox
-        android:id="@+id/check_de"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layoutDirection="rtl"
-        android:text="@string/german"
-        android:textDirection="ltr"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/en_view" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/gri"
+            android:checked="false" />
 
-    <View
-        android:id="@+id/de_view"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:background="@color/light_black"
-        app:layout_constraintTop_toBottomOf="@+id/check_de" />
+        <RadioButton
+            android:id="@+id/radioButtonGerman"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:text="@string/german" />
 
-    <CheckBox
-        android:id="@+id/check_fr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layoutDirection="rtl"
-        android:text="@string/french"
-        android:textDirection="ltr"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/de_view" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/gri" />
 
-    <View
-        android:id="@+id/fr_view"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:background="@color/light_black"
-        app:layout_constraintTop_toBottomOf="@+id/check_fr" />
+        <RadioButton
+            android:id="@+id/radioButtonFrench"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:text="@string/french" />
 
-    <CheckBox
-        android:id="@+id/check_ar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layoutDirection="rtl"
-        android:text="@string/arabic"
-        android:textDirection="ltr"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fr_view" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/gri" />
 
-    <View
-        android:id="@+id/ar_view"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:background="@color/light_black"
-        app:layout_constraintTop_toBottomOf="@+id/check_ar" />
+        <RadioButton
+            android:id="@+id/radioButtonArabic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:text="@string/arabic" />
 
-    <CheckBox
-        android:id="@+id/check_tr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layoutDirection="rtl"
-        android:text="@string/turkce"
-        android:textDirection="ltr"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ar_view" />
-
-    <View
-        android:id="@+id/tr_view"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:background="@color/light_black"
-        app:layout_constraintTop_toBottomOf="@+id/check_tr" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/gri" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/theme_text_view"
@@ -164,52 +115,90 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tr_view" />
+        app:layout_constraintTop_toBottomOf="@id/languageRadioGroup" />
 
-    <Switch
-        android:id="@+id/switch1"
+    <LinearLayout
+        android:id="@+id/dark_mode_linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        android:text="@string/dark_theme"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/light_mode_linear"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/theme_text_view"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintTop_toBottomOf="@+id/theme_text_view">
 
-    <Switch
-        android:id="@+id/switch2"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/dark_theme"
+            android:textColor="@color/black" />
+
+        <Switch
+            android:id="@+id/dark_theme_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:clickable="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/light_mode_linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        android:text="@string/light_theme"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:padding="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/switch1"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintTop_toBottomOf="@+id/dark_mode_linear">
 
-    <Switch
-        android:id="@+id/switch3"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/light_theme"
+            android:textColor="@color/black" />
+
+        <Switch
+            android:id="@+id/light_theme_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:clickable="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    </LinearLayout>
+
+    <!--<LinearLayout
+        android:id="@+id/system_default_linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        android:text="@string/system_default"
-        android:textColor="@color/black"
-        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/switch2"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintTop_toBottomOf="@+id/light_mode_linear">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/system_default"
+            android:textColor="@color/black" />
+
+        <Switch
+            android:id="@+id/system_default_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    </LinearLayout>-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/settings_back_button"

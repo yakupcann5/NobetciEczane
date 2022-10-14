@@ -32,5 +32,7 @@
     <string name="error">Error</string>
     <string name="now_location_failed">Cannot Get Your Location</string>
     <string name="not_found_pharmacy">Pharmacy is not found</string>
+    <string name="try_again">Try Again</string>
+    <string name="we_vote">Rate us</string>
 
 </resources>

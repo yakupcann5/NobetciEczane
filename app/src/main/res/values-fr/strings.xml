@@ -32,5 +32,7 @@
     <string name="error">Erreur</string>
     <string name="now_location_failed">Impossible dobtenir votre position</string>
     <string name="not_found_pharmacy">La pharmacie est introuvable</string>
+    <string name="try_again">Reessayer</string>
+    <string name="we_vote">Évaluez nous</string>
 
 </resources>

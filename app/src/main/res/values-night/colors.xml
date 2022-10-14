@@ -18,4 +18,5 @@
     <color name="nav_bar_background">#1C1C1C</color>
     <color name="custom_circle_button_color">#FF4C4C4C</color>
     <color name="transparent">@android:color/transparent</color>
+    <color name="gri">#454545</color>
 </resources>
