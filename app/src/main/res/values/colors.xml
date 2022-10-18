@@ -23,4 +23,5 @@
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
     <color name="gri">#454545</color>
+    <color name="notification_title">#888888</color>
 </resources>
