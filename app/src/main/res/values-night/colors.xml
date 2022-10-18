@@ -19,4 +19,5 @@
     <color name="custom_circle_button_color">#FF4C4C4C</color>
     <color name="transparent">@android:color/transparent</color>
     <color name="gri">#454545</color>
+    <color name="notification_title">#888888</color>
 </resources>

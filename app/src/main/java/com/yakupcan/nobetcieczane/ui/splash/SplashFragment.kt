@@ -41,7 +41,6 @@ import java.util.*
 class SplashFragment : Fragment(), LocationListener {
     private lateinit var binding: FragmentSplashBinding
     private val splashViewModel: SplashViewModel by viewModels()
-    private var permissionControl = 0
     private lateinit var flpc: FusedLocationProviderClient
     private lateinit var locationTask: Task<Location>
 
@@ -51,9 +50,6 @@ class SplashFragment : Fragment(), LocationListener {
     ): View {
         binding = FragmentSplashBinding.inflate(inflater)
         flpc = LocationServices.getFusedLocationProviderClient(this.requireContext())
-        /*Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(R.id.action_splashFragment_to_mapsFragment2)
-        }, 5000)*/
         return binding.root
     }
 
@@ -114,49 +110,6 @@ class SplashFragment : Fragment(), LocationListener {
         }.addOnFailureListener { it -> Log.d("Location Error", it.localizedMessage.toString()) }
     }
 
-    /*@SuppressLint("MissingSuperCall")
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        if (requestCode == 100) {
-            if (permissions.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Log.d("yakup", "izin alındı")
-                getLocationInformation()
-
-            } else {
-                permissionControl = ContextCompat.checkSelfPermission(
-                    this.requireContext(),
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                )
-                locationTask = flpc.lastLocation
-                getLocationInformation()
-            }
-        }
-    }*/
-
-
-    private fun location() {
-/*        permissionControl = ContextCompat.checkSelfPermission(
-            this.requireContext(),
-            Manifest.permission.ACCESS_FINE_LOCATION
-        )
-        Log.d("yakup", "location: 1")
-        if (permissionControl != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(
-                this.requireActivity(),
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                100
-            )
-        } else {
-            Log.d("yakup", "location: 2")
-            locationTask = flpc.lastLocation
-            getLocationInformation()
-
-        }*/
-    }
-
     override fun onLocationChanged(location: Location) {
         Log.d("Onlocationchanged: ", "Girdi")
         val geocoder = Geocoder(this.requireContext(), Locale.getDefault())
@@ -167,10 +120,9 @@ class SplashFragment : Fragment(), LocationListener {
                 val alertDialog =
                     AlertDialog.Builder(this.requireContext()).setTitle(R.string.error)
                         .setMessage(R.string.not_found_pharmacy).setCancelable(true)
-                        .setPositiveButton(R.string.cancel,
-                            DialogInterface.OnClickListener { dialogInterface, i ->
-                                dialogInterface.cancel()
-                            }).setNegativeButton(
+                        .setPositiveButton(R.string.cancel) { dialogInterface, _ ->
+                            dialogInterface.cancel()
+                        }.setNegativeButton(
                             R.string.try_again
                         ) { _, _ ->
                             onStart()
@@ -192,8 +144,6 @@ class SplashFragment : Fragment(), LocationListener {
         val builder = LocationSettingsRequest.Builder().addLocationRequest(location)
         val client = LocationServices.getSettingsClient(this.requireContext())
         val task = client.checkLocationSettings(builder.build())
-
-
         task.addOnSuccessListener {
             checkPermissionAndOpenMaps()
         }
@@ -241,36 +191,4 @@ class SplashFragment : Fragment(), LocationListener {
             getLocationInformation()
         }
     }
-
-    /*
-        @Deprecated(
-            "Deprecated in Java", ReplaceWith(
-                "super.onActivityResult(requestCode, resultCode, data)",
-                "androidx.fragment.app.Fragment"
-            )
-        )
-        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-            if (resultCode == AppCompatActivity.RESULT_OK && requestCode == 2) {
-                Log.d("result ok", data.toString())
-                location()
-            } else if (resultCode == AppCompatActivity.RESULT_CANCELED) {
-                Log.d("result cancelled", data.toString())
-            }
-            super.onActivityResult(requestCode, resultCode, data)
-        }*/
-/*    fun openSomeActivityForResult() {
-        val intent = Intent(this.requireContext(), MainActivity::class.java)
-        someActivityResultLauncher.launch(intent)
-    }
-
-    // You can do the assignment inside onAttach or onCreate, i.e, before the activity is displayed
-    private var someActivityResultLauncher : ActivityResultLauncher<Intent> =
-        registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()
-        ) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                // There are no request codes
-                val data : Intent? = result.data
-            }
-        }*/
 }

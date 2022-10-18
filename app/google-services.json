@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1061171493815:android:9af46fa48af57a9b5b4632",
         "android_client_info": {
-          "package_name": "com.yakupcan.nobetcieczane"
+          "package_name": "com.android.nobetcieczane"
         }
       },
       "oauth_client": [
@@ -33,6 +33,36 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061171493815:android:f3981bcef7bb5ab55b4632",
+        "android_client_info": {
+          "package_name": "com.yakupcan.nobetcieczane"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061171493815-354or64bt72d0bqaqcqbmsqkgc3foe6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpRRKgrxCEQfxcutDzHDgvq-CM84YSjYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061171493815-354or64bt72d0bqaqcqbmsqkgc3foe6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7856290377548275~3265730817"
     }
   ],
   "configuration_version": "1"
