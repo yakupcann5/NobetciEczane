@@ -131,4 +131,28 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
     fun setSelectedTheme(selectedTheme: String?) {
         sharedPreferences.edit().putString(THEME,selectedTheme).apply()
     }
+
+    fun setServerKey(key : String) {
+        sharedPreferences.edit().putString("FIREBASE_SERVER_KEY", key).apply()
+    }
+
+    fun getServerKey() : String? {
+        return sharedPreferences.getString("FIREBASE_SERVER_KEY", "")
+    }
+
+    fun setLastPushToken(key : String) {
+        sharedPreferences.edit().putString("LAST_PUSH_TOKEN", key).apply()
+    }
+
+    fun getLastPushToken() : String? {
+        return sharedPreferences.getString("LAST_PUSH_TOKEN", "")
+    }
+
+    fun setPushToken(token : String) {
+        sharedPreferences.edit().putString("FIREBASE_PUSH_TOKEN", token).apply()
+    }
+
+    fun getPushToken() : String? {
+        return sharedPreferences.getString("FIREBASE_PUSH_TOKEN", "")
+    }
 }

@@ -5,6 +5,7 @@ import com.yakupcan.nobetcieczane.common.Constants
 import com.yakupcan.nobetcieczane.data.Service
 import com.yakupcan.nobetcieczane.data.model.DataDto
 import com.yakupcan.nobetcieczane.data.model.PharmacyResponse
+import com.yakupcan.nobetcieczane.data.model.PushResponseDTO
 import com.yakupcan.nobetcieczane.domain.repository.PharmacyRepository
 import com.yakupcan.nobetcieczane.util.MyPreferences
 import javax.inject.Inject

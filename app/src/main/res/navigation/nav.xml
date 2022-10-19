@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_splashFragment_to_filterFragment"
             app:destination="@id/filterFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_pushFragment"
+            app:destination="@id/pushFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment2"
@@ -73,5 +76,9 @@
             android:id="@+id/action_filterFragment_to_listFragment2"
             app:destination="@id/listFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/pushFragment"
+        android:name="com.yakupcan.nobetcieczane.ui.push.PushFragment"
+        android:label="PushFragment" />
 
 </navigation>

@@ -9,6 +9,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission
+        android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -38,21 +41,19 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD54iHJN6YE7sOpnvXHYIgayB70E6sHzF0" />
-
-        <!--        <activity-->
-        <!--            android:name=".ui.SplashScreen"-->
-        <!--            android:exported="true"-->
-        <!--            android:theme="@style/Theme.Splash">-->
-        <!--            <intent-filter>-->
-        <!--                <action android:name="android.intent.action.MAIN" />-->
-
-        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-        <!--            </intent-filter>-->
-        <!--        </activity>-->
+            android:value="AIzaSyD54iHJN6YE7sOpnvXHYIgayB70E6sHzF0" /> <!-- <activity -->
+        <!-- android:name=".ui.SplashScreen" -->
+        <!-- android:exported="true" -->
+        <!-- android:theme="@style/Theme.Splash"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-7856290377548275~3265730817" />
+
         <activity
             android:name=".ui.MainActivity"
             android:configChanges="orientation|screenSize"

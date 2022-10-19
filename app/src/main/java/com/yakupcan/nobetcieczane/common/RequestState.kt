@@ -1,7 +1,7 @@
 package com.yakupcan.nobetcieczane.common
 
-sealed class RequestState<T>(val data: T? = null) {
-    class Loading<T> : RequestState<T>()
-    class Error<T>(val exception: Throwable) : RequestState<T>()
-    class Success<T>(data: T) : RequestState<T>(data)
+sealed class RequestState<out T>(val data: T? = null) {
+    class Loading : RequestState<Nothing>()
+    class Error(val exception : Throwable) : RequestState<Nothing>()
+    class Success<out T>(data: T) : RequestState<T>(data)
 }

@@ -2,7 +2,6 @@ package com.yakupcan.nobetcieczane.ui.splash
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.DialogInterface
 import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.location.Geocoder
@@ -10,8 +9,7 @@ import android.location.Location
 import android.location.LocationListener
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -39,24 +37,56 @@ import java.util.*
 
 @AndroidEntryPoint
 class SplashFragment : Fragment(), LocationListener {
-    private lateinit var binding: FragmentSplashBinding
-    private val splashViewModel: SplashViewModel by viewModels()
-    private lateinit var flpc: FusedLocationProviderClient
-    private lateinit var locationTask: Task<Location>
+    private lateinit var binding : FragmentSplashBinding
+    private val splashViewModel : SplashViewModel by viewModels()
+    private lateinit var flpc : FusedLocationProviderClient
+    private lateinit var locationTask : Task<Location>
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+        inflater : LayoutInflater, container : ViewGroup?,
+        savedInstanceState : Bundle?
+    ) : View {
         binding = FragmentSplashBinding.inflate(inflater)
         flpc = LocationServices.getFusedLocationProviderClient(this.requireContext())
         return binding.root
     }
 
+    @SuppressLint("HardwareIds")
     @RequiresApi(Build.VERSION_CODES.N)
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
         //onLocationChanged(splashViewModel.getLat(),splashViewModel.getLng())
-        checkPermissions()
+        val androidID = Settings.Secure.getString(
+            context?.contentResolver,
+            Settings.Secure.ANDROID_ID
+        )
+        if (androidID.equals("a144708fc62a59c4")) {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Push Screen")
+            builder.setMessage(
+                "Do you want to open the push screen?"
+            )
+            builder.setPositiveButton("Yes") { _, _ ->
+                findNavController().navigate(R.id.action_splashFragment_to_pushFragment)
+            }
+
+            builder.setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            builder.show()
+        } else {
+            checkPermissions()
+            savePushToken()
+        }
+    }
+
+    @SuppressLint("HardwareIds")
+    private fun savePushToken() {
+        val androidID = Settings.Secure.getString(
+            context?.contentResolver,
+            Settings.Secure.ANDROID_ID
+        )
+        splashViewModel.savePushToken(androidID)
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -110,7 +140,7 @@ class SplashFragment : Fragment(), LocationListener {
         }.addOnFailureListener { it -> Log.d("Location Error", it.localizedMessage.toString()) }
     }
 
-    override fun onLocationChanged(location: Location) {
+    override fun onLocationChanged(location : Location) {
         Log.d("Onlocationchanged: ", "Girdi")
         val geocoder = Geocoder(this.requireContext(), Locale.getDefault())
         val locationList = geocoder.getFromLocation(location.latitude, location.longitude, 1)
@@ -150,11 +180,11 @@ class SplashFragment : Fragment(), LocationListener {
         task.addOnFailureListener {
             if (it is ResolvableApiException) {
                 try {
-                    val intentSenderRequest: IntentSenderRequest =
+                    val intentSenderRequest : IntentSenderRequest =
                         IntentSenderRequest.Builder(it.resolution.intentSender)
                             .build()
                     locationRequestHandler.launch(intentSenderRequest)
-                } catch (sendEx: IntentSender.SendIntentException) {
+                } catch (sendEx : IntentSender.SendIntentException) {
                     // Ignore the error.
                 }
             }

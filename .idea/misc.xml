@@ -76,6 +76,9 @@
         <entry key="app/src/main/res/drawable/ic_drop_down.xml" value="0.188" />
         <entry key="app/src/main/res/drawable/ic_map.xml" value="0.188" />
         <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.188" />
+        <entry key="app/src/main/res/layout/activity_deneme.xml" value="0.40989583333333335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.40989583333333335" />
+        <entry key="app/src/main/res/layout/activity_push.xml" value="0.275" />
         <entry key="app/src/main/res/layout/bottom_sheet_detail.xml" value="0.22" />
         <entry key="app/src/main/res/layout/bottom_sheet_setting.xml" value="0.19583333333333333" />
         <entry key="app/src/main/res/layout/deneme.xml" value="0.19583333333333333" />
@@ -83,8 +86,11 @@
         <entry key="app/src/main/res/layout/fragment_list.xml" value="0.19583333333333333" />
         <entry key="app/src/main/res/layout/fragment_map_with_bottomsheet.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.19583333333333333" />
+        <entry key="app/src/main/res/layout/fragment_push.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.1" />
         <entry key="app/src/main/res/layout/pharmacy_on_duty_recycler_row.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/push_settings_dialog.xml" value="0.40989583333333335" />
+        <entry key="app/src/main/res/layout/token_dialog.xml" value="0.45" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
