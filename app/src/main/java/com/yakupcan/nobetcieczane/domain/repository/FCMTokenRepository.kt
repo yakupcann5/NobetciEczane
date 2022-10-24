@@ -11,5 +11,5 @@ interface FirebaseFirestoreRepository {
 */
 
     suspend fun saveTokenToFirestore(id : String, token : String) : Flow<RequestState<Any>>
-    suspend fun pushToAllDevices(pushModel : PushModel, serverKey : String) : PushResponseDTO
+    suspend fun pushToDevices(pushModel : PushModel, serverKey : String) : PushResponseDTO
 }

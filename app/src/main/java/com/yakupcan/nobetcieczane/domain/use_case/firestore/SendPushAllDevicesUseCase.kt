@@ -11,7 +11,7 @@ class SendPushAllDevicesUseCase @Inject constructor(private var repository : Fir
     operator fun invoke(pushModel : PushModel, serverKey : String) = flow {
         try {
             emit(RequestState.Loading())
-            val pushResponse = repository.pushToAllDevices(pushModel, serverKey)
+            val pushResponse = repository.pushToDevices(pushModel, serverKey)
             emit(RequestState.Success(pushResponse))
         } catch (e : Exception) {
             Log.e("Push Error", e.message.toString())

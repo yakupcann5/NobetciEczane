@@ -60,7 +60,7 @@ class PushFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0 : View?) {
         when (p0?.id) {
             R.id.sendAllDevices -> {
-                sendAllDevices("/topics/all")
+                sendPush("/topics/all")
             }
 
             R.id.sendOneDevices -> {
@@ -73,17 +73,10 @@ class PushFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun sendAllDevices(to : String) {
+    private fun sendPush(to : String) {
         if (!checkInput()) {
             showMessage("Please fill the inputs!")
         } else {
-            val pushModel = PushModel()
-            pushModel.to = to
-            pushModel.priority = "high"
-            pushModel.notification = Notification(
-                binding.titleEditText.text.toString(),
-                binding.bodyEditText.text.toString()
-            )
             if (serverKey.isEmpty()) {
                 Toast.makeText(
                     requireContext(),
@@ -92,7 +85,14 @@ class PushFragment : Fragment(), View.OnClickListener {
                 ).show()
                 return
             }
-            viewModel.pushToAllDevices(pushModel, serverKey)
+            val pushModel = PushModel()
+            pushModel.to = to
+            pushModel.priority = "high"
+            pushModel.notification = Notification(
+                binding.titleEditText.text.toString(),
+                binding.bodyEditText.text.toString()
+            )
+            viewModel.pushToDevices(pushModel, serverKey)
             viewLifecycleOwner.lifecycleScope.launch {
                 viewModel.pushState.collect { result ->
                     when (result) {
@@ -160,7 +160,7 @@ class PushFragment : Fragment(), View.OnClickListener {
                 showMessage("Please fill the inputs!")
             else {
                 viewModel.savePushToken(tokenEditText.text.toString())
-                sendAllDevices(tokenEditText.text.toString())
+                sendPush(tokenEditText.text.toString())
                 dialog.dismiss()
             }
         }

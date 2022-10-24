@@ -47,7 +47,7 @@ class FirestoreRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun pushToAllDevices(pushModel : PushModel, serverKey : String) : PushResponseDTO {
+    override suspend fun pushToDevices(pushModel : PushModel, serverKey : String) : PushResponseDTO {
         return api.sendAllDevices(pushModel, serverKey = "key=$serverKey")
     }
 }

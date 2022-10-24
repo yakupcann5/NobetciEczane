@@ -41,7 +41,7 @@ class PushFragmentViewModel @Inject constructor(
         preferences.setLastPushToken(token)
     }
 
-    fun pushToAllDevices(pushModel : PushModel, serverKey : String) {
+    fun pushToDevices(pushModel : PushModel, serverKey : String) {
         viewModelScope.launch {
             pushUseCases.sendPushToAllDevicesUseCase.invoke(pushModel, serverKey).collect {
                 _pushState.value = it

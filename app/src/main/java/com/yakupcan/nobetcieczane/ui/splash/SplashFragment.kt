@@ -59,7 +59,7 @@ class SplashFragment : Fragment(), LocationListener {
             context?.contentResolver,
             Settings.Secure.ANDROID_ID
         )
-        if (androidID.equals("a144708fc62a59c4")) {
+        if (androidID.equals("a5ac1b02949fb31b")) {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Push Screen")
             builder.setMessage(
