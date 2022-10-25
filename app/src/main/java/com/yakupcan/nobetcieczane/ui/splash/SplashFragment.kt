@@ -37,15 +37,15 @@ import java.util.*
 
 @AndroidEntryPoint
 class SplashFragment : Fragment(), LocationListener {
-    private lateinit var binding : FragmentSplashBinding
-    private val splashViewModel : SplashViewModel by viewModels()
-    private lateinit var flpc : FusedLocationProviderClient
-    private lateinit var locationTask : Task<Location>
+    private lateinit var binding: FragmentSplashBinding
+    private val splashViewModel: SplashViewModel by viewModels()
+    private lateinit var flpc: FusedLocationProviderClient
+    private lateinit var locationTask: Task<Location>
 
     override fun onCreateView(
-        inflater : LayoutInflater, container : ViewGroup?,
-        savedInstanceState : Bundle?
-    ) : View {
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentSplashBinding.inflate(inflater)
         flpc = LocationServices.getFusedLocationProviderClient(this.requireContext())
         return binding.root
@@ -53,31 +53,10 @@ class SplashFragment : Fragment(), LocationListener {
 
     @SuppressLint("HardwareIds")
     @RequiresApi(Build.VERSION_CODES.N)
-    override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         //onLocationChanged(splashViewModel.getLat(),splashViewModel.getLng())
-        val androidID = Settings.Secure.getString(
-            context?.contentResolver,
-            Settings.Secure.ANDROID_ID
-        )
-        if (androidID.equals("a5ac1b02949fb31b")) {
-            val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Push Screen")
-            builder.setMessage(
-                "Do you want to open the push screen?"
-            )
-            builder.setPositiveButton("Yes") { _, _ ->
-                findNavController().navigate(R.id.action_splashFragment_to_pushFragment)
-            }
-
-            builder.setNegativeButton("No") { dialog, _ ->
-                dialog.dismiss()
-            }
-
-            builder.show()
-        } else {
-            checkPermissions()
-            savePushToken()
-        }
+        checkPermissions()
+        savePushToken()
     }
 
     @SuppressLint("HardwareIds")
@@ -128,6 +107,35 @@ class SplashFragment : Fragment(), LocationListener {
         }
     }
 
+    @SuppressLint("HardwareIds")
+    fun push(navigateID: Int) {
+        val androidID = Settings.Secure.getString(
+            context?.contentResolver,
+            Settings.Secure.ANDROID_ID
+        )
+        Log.d("androidID", "onViewCreated: $androidID")
+        if (androidID.equals("ba4581f40506de8e")) {
+            //ba4581f40506de8e bu release için id
+            //a5ac1b02949fb31b bu debug için id
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Push Screen")
+            builder.setMessage(
+                "Do you want to open the push screen?"
+            )
+            builder.setPositiveButton("Yes") { _, _ ->
+                findNavController().navigate(R.id.action_splashFragment_to_pushFragment)
+            }
+
+            builder.setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+                findNavController().navigate(navigateID)
+            }
+            builder.show()
+        } else {
+            findNavController().navigate(navigateID)
+        }
+    }
+
     @SuppressLint("MissingPermission")
     private fun getLocationInformation() {
         flpc.lastLocation.addOnSuccessListener(requireActivity()) {
@@ -140,7 +148,7 @@ class SplashFragment : Fragment(), LocationListener {
         }.addOnFailureListener { it -> Log.d("Location Error", it.localizedMessage.toString()) }
     }
 
-    override fun onLocationChanged(location : Location) {
+    override fun onLocationChanged(location: Location) {
         Log.d("Onlocationchanged: ", "Girdi")
         val geocoder = Geocoder(this.requireContext(), Locale.getDefault())
         val locationList = geocoder.getFromLocation(location.latitude, location.longitude, 1)
@@ -163,7 +171,8 @@ class SplashFragment : Fragment(), LocationListener {
                 Log.d("Longitude: ", it.longitude.toString())
                 //splashViewModel.saveLocationLatLng(it.latitude, it.longitude)
                 splashViewModel.saveCityTown(it.adminArea, it.subAdminArea)
-                findNavController().navigate(R.id.action_splashFragment_to_mapsFragment2)
+                val splashToMaps = R.id.action_splashFragment_to_mapsFragment2
+                push(splashToMaps)
             }
         }
     }
@@ -180,11 +189,11 @@ class SplashFragment : Fragment(), LocationListener {
         task.addOnFailureListener {
             if (it is ResolvableApiException) {
                 try {
-                    val intentSenderRequest : IntentSenderRequest =
+                    val intentSenderRequest: IntentSenderRequest =
                         IntentSenderRequest.Builder(it.resolution.intentSender)
                             .build()
                     locationRequestHandler.launch(intentSenderRequest)
-                } catch (sendEx : IntentSender.SendIntentException) {
+                } catch (sendEx: IntentSender.SendIntentException) {
                     // Ignore the error.
                 }
             }
@@ -214,7 +223,8 @@ class SplashFragment : Fragment(), LocationListener {
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             Log.d("Location: ", "Location open failed!")
-            findNavController().navigate(R.id.action_splashFragment_to_filterFragment)
+            val splashToFilter = R.id.action_splashFragment_to_filterFragment
+            push(splashToFilter)
         } else {
             Log.d("Location: ", "Location opened!")
             locationTask = flpc.lastLocation

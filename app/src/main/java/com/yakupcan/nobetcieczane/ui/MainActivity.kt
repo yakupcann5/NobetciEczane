@@ -1,27 +1,17 @@
 package com.yakupcan.nobetcieczane.ui
 
-import android.content.Context
-import android.content.res.Configuration
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.core.content.ContextCompat
 import com.yakupcan.nobetcieczane.R
 import com.yakupcan.nobetcieczane.databinding.ActivityMainBinding
 import com.yakupcan.nobetcieczane.ui.main.MainActivityViewModel
-import com.yakupcan.nobetcieczane.ui.settingsfragment.SettingsFragmentViewModel
-import com.yakupcan.nobetcieczane.util.MyPreferences
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -78,22 +68,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkedTheme() {
-        if (viewModel.getSelectedTheme() == null) {
-            if (viewModel.getSelectedTheme() == "night") {
-                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
-                    viewModel.setSelectedTheme("dark")
-                } else {
-                    viewModel.setSelectedTheme("night")
-                }
-            }
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+            viewModel.setSelectedTheme("dark")
         } else {
-            if (viewModel.getSelectedTheme() == "night") {
-                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
-                    viewModel.setSelectedTheme("dark")
-                } else {
-                    viewModel.setSelectedTheme("night")
-                }
-            }
+            viewModel.setSelectedTheme("night")
         }
     }
 }
