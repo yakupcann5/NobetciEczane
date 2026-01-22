@@ -18,6 +18,8 @@ import com.yakupcan.nobetcieczane.common.RequestState
 import com.yakupcan.nobetcieczane.data.model.DataDto
 import com.yakupcan.nobetcieczane.databinding.FragmentListBinding
 import com.yakupcan.nobetcieczane.databinding.TabBarLayoutBinding
+import com.yakupcan.nobetcieczane.util.InterstitialAdManager
+import com.google.android.gms.ads.MobileAds
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -45,6 +47,7 @@ class ListFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
+        initAds()
         recyclerView = view.findViewById(R.id.pharmacy_recyclerView)
         recyclerViewAdapter = ListFragmentRecyclerViewAdapter(pharmacyArray, requireContext())
         recyclerView.layoutManager =
@@ -80,6 +83,11 @@ class ListFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    private fun initAds() {
+        MobileAds.initialize(requireContext())
+        InterstitialAdManager.loadAd(requireContext())
+    }
+
     private fun initViews() {
         binding.listFragmentTabBar.listFragTabBarLocationButton.setOnClickListener(this)
         binding.listFragmentTabBar.listFragmentSettingButton.setOnClickListener(this)
@@ -89,7 +97,9 @@ class ListFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.list_frag_tab_bar_location_button -> {
-                findNavController().navigate(R.id.action_listFragment2_to_mapsFragment2)
+                InterstitialAdManager.showAdOnTransition(requireActivity()) {
+                    findNavController().navigate(R.id.action_listFragment2_to_mapsFragment2)
+                }
             }
             R.id.list_fragment_setting_button -> {
                 findNavController().navigate(R.id.action_listFragment2_to_settingsFragment)

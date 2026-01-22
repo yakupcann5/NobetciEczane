@@ -14,8 +14,6 @@ import com.yakupcan.nobetcieczane.data.model.DataDto
 import com.yakupcan.nobetcieczane.databinding.PharmacyOnDutyRecyclerRowBinding
 import com.yakupcan.nobetcieczane.util.Tools
 import com.yakupcan.nobetcieczane.util.ViewAnimation
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
 
 class ListFragmentRecyclerViewAdapter(
     private var pharmacyList: ArrayList<DataDto>, val context: Context
@@ -44,9 +42,6 @@ class ListFragmentRecyclerViewAdapter(
         holder.sentBinding.pharmacyAddress.text = pharmacyList[position].adresi
         holder.sentBinding.pharmacyPhoneNumber.text = pharmacyList[position].telefon
         holder.sentBinding.listFragButtonsLinear.visibility = View.GONE
-        MobileAds.initialize(context)
-        val adRequest = AdRequest.Builder().build()
-        holder.sentBinding.adMob.loadAd(adRequest)
         holder.sentBinding.btToggleText.setOnClickListener {
             toggleSectionText(it, holder.sentBinding)
             holder.sentBinding.listFragButtonsLinear.visibility = View.VISIBLE

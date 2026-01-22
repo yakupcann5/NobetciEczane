@@ -20,6 +20,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.yakupcan.nobetcieczane.R
 import com.yakupcan.nobetcieczane.databinding.FragmentMapWithBottomsheetBinding
+import com.yakupcan.nobetcieczane.util.InterstitialAdManager
+import com.google.android.gms.ads.MobileAds
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -38,16 +40,24 @@ class MapsFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViews()
+        initAds()
         mapReady()
         setBottomSettingSheet(false)
         viewModel.getPharmacy()
         inAppReviews()
     }
 
+    private fun initAds() {
+        MobileAds.initialize(requireContext())
+        InterstitialAdManager.loadAd(requireContext())
+    }
+
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.filter_fragment_open_bttn -> {
-                findNavController().navigate(R.id.action_mapsFragment2_to_listFragment2)
+                InterstitialAdManager.showAdOnTransition(requireActivity()) {
+                    findNavController().navigate(R.id.action_mapsFragment2_to_listFragment2)
+                }
             }
 
             R.id.settings_button -> {
@@ -203,6 +213,7 @@ class MapsFragment : Fragment(), View.OnClickListener {
                                         BottomSheetBehavior.STATE_HIDDEN -> {
                                             bottomSheetBehavior.peekHeight = 0
                                             binding.bottomsheet.constraint.visibility = View.GONE
+                                            InterstitialAdManager.incrementAndShowIfReady(requireActivity()) {}
                                         }
 
                                         else -> {}

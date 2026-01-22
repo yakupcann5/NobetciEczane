@@ -13,6 +13,8 @@ import com.yakupcan.nobetcieczane.R
 object InterstitialAdManager {
     private var interstitialAd: InterstitialAd? = null
     private var isLoading = false
+    private var interactionCount = 0
+    private const val INTERACTIONS_BEFORE_AD = 3
 
     fun loadAd(context: Context) {
         if (isLoading || interstitialAd != null) return
@@ -60,6 +62,44 @@ object InterstitialAdManager {
             loadAd(activity)
             onAdDismissed()
         }
+    }
+
+    /**
+     * Increment interaction counter and show ad if threshold reached
+     * Returns true if ad was shown
+     */
+    fun incrementAndShowIfReady(activity: Activity, onAdDismissed: () -> Unit): Boolean {
+        interactionCount++
+        if (interactionCount >= INTERACTIONS_BEFORE_AD && interstitialAd != null) {
+            interactionCount = 0
+            showAd(activity, onAdDismissed)
+            return true
+        }
+        onAdDismissed()
+        return false
+    }
+
+    /**
+     * Show ad on screen transition (Map <-> List)
+     */
+    fun showAdOnTransition(activity: Activity, onComplete: () -> Unit) {
+        if (interstitialAd != null) {
+            showAd(activity, onComplete)
+        } else {
+            loadAd(activity)
+            onComplete()
+        }
+    }
+
+    /**
+     * Track interaction without showing ad
+     */
+    fun trackInteraction() {
+        interactionCount++
+    }
+
+    fun resetInteractionCount() {
+        interactionCount = 0
     }
 
     fun isAdReady(): Boolean = interstitialAd != null
