@@ -10,8 +10,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -35,7 +33,6 @@ class MapsFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMapWithBottomsheetBinding.inflate(layoutInflater)
-        MobileAds.initialize(this.requireContext()) {}
         return binding.root
     }
 
@@ -44,9 +41,6 @@ class MapsFragment : Fragment(), View.OnClickListener {
         mapReady()
         setBottomSettingSheet(false)
         viewModel.getPharmacy()
-        MobileAds.initialize(this.requireContext())
-        val adRequest = AdRequest.Builder().build()
-        binding.bottomsheet.adMob.loadAd(adRequest)
         inAppReviews()
     }
 

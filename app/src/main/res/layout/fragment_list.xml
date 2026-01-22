@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,19 +10,12 @@
         android:id="@+id/list_fragment_tab_bar"
         layout="@layout/tab_bar_layout" />
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/list_frag_adMob"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/list_fragment_tab_bar"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/list_banner" />
     <LinearLayout
         android:id="@+id/not_found_pharmacy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/light_black"
-        android:layout_below="@+id/list_frag_adMob"
+        android:layout_below="@id/list_fragment_tab_bar"
         android:visibility="gone">
         <TextView
             android:layout_width="match_parent"
@@ -40,7 +32,7 @@
         android:id="@+id/pharmacy_recyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/list_frag_adMob" />
+        android:layout_below="@id/list_fragment_tab_bar" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/filter_fragment_open_bttn"

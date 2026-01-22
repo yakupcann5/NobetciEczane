@@ -18,8 +18,6 @@ import com.yakupcan.nobetcieczane.common.RequestState
 import com.yakupcan.nobetcieczane.data.model.DataDto
 import com.yakupcan.nobetcieczane.databinding.FragmentListBinding
 import com.yakupcan.nobetcieczane.databinding.TabBarLayoutBinding
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -54,9 +52,6 @@ class ListFragment : Fragment(), View.OnClickListener {
         recyclerView.adapter = recyclerViewAdapter
         (recyclerView.itemAnimator as SimpleItemAnimator?)!!.supportsChangeAnimations = false
         recyclerView.setHasFixedSize(true);
-        MobileAds.initialize(this.requireContext())
-        val adRequest = AdRequest.Builder().build()
-        binding.listFragAdMob.loadAd(adRequest)
     }
 
     private fun getDataFromApi() {

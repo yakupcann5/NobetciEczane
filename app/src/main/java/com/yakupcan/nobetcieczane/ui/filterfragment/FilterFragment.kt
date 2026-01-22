@@ -15,6 +15,8 @@ import com.yakupcan.nobetcieczane.Districts
 import com.yakupcan.nobetcieczane.R
 import com.yakupcan.nobetcieczane.databinding.FragmentFilterBinding
 import com.yakupcan.nobetcieczane.util.Helper
+import com.yakupcan.nobetcieczane.util.InterstitialAdManager
+import com.google.android.gms.ads.MobileAds
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.Collator
 import java.util.*
@@ -47,6 +49,12 @@ class FilterFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViews()
         getData()
+        initAds()
+    }
+
+    private fun initAds() {
+        MobileAds.initialize(requireContext())
+        InterstitialAdManager.loadAd(requireContext())
     }
 
     private fun initViews() {
@@ -70,7 +78,9 @@ class FilterFragment : Fragment(), View.OnClickListener {
                     binding.districtsSpinner.selectedItem.toString().lowercase()
                 )
                 viewModel.setDisc(binding.districtsSpinner.selectedItem.toString())
-                findNavController().navigate(R.id.action_filterFragment_to_mapsFragment2)
+                InterstitialAdManager.showAd(requireActivity()) {
+                    findNavController().navigate(R.id.action_filterFragment_to_mapsFragment2)
+                }
             }
         }
     }

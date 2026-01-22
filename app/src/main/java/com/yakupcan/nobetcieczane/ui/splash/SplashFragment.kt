@@ -152,7 +152,7 @@ class SplashFragment : Fragment(), LocationListener {
         Log.d("Onlocationchanged: ", "Girdi")
         val geocoder = Geocoder(this.requireContext(), Locale.getDefault())
         val locationList = geocoder.getFromLocation(location.latitude, location.longitude, 1)
-        locationList.forEach {
+        locationList?.forEach {
             it?.toString()?.let { it1 -> Log.d("Address: ", it1) }
             if (it == null) {
                 val alertDialog =
