@@ -4,6 +4,7 @@ import com.yakupcan.nobetcieczane.common.Constants
 import com.yakupcan.nobetcieczane.domain.repository.PharmacyRepository
 import com.yakupcan.nobetcieczane.common.RequestState
 import com.yakupcan.nobetcieczane.util.MyPreferences
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
@@ -27,5 +28,7 @@ class GetPharmacyUseCase @Inject constructor(
         } catch (e: IOException) {
             emit(RequestState.Error(e))
         }
+    }.catch {
+        emit(RequestState.Error(it))
     }
 }
